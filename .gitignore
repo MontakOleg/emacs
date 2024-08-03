@@ -1,0 +1,16 @@
+*.DS_Store
+/.cache/
+/backups/
+/eln-cache/
+/elpa/
+/history
+/eshell/history
+/quelpa/
+/recentf
+/transient/
+/tree-sitter/
+/auto-save-list/
+/var/
+/tramp
+/tutorial/
+/projects
