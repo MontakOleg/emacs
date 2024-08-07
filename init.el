@@ -150,6 +150,7 @@
   :config
   ;; (add-to-list 'copilot-indentation-alist '(prog-mode . 2))
   (add-to-list 'copilot-indentation-alist '(org-mode . 2))
+  (add-to-list 'copilot-indentation-alist '(sql-mode . 2))
   ;; (add-to-list 'copilot-indentation-alist '(text-mode . 2))
   ;; (add-to-list 'copilot-indentation-alist '(closure-mode . 2))
   (add-to-list 'copilot-indentation-alist '(emacs-lisp-mode . 2)))
@@ -253,6 +254,9 @@
   (add-to-list 'org-src-lang-modes '("swift" . swift))
   (org-babel-do-load-languages 'org-babel-load-languages '((swift . t)
                                                            (http . t)
+                                                           (sql . t)
+                                                           (sqlite . t)
+                                                           (emacs-lisp . t)
                                                            (shell . t))))
 
 ;; yaml
