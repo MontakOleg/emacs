@@ -141,14 +141,14 @@
                    :repo "copilot-emacs/copilot.el"
                    :branch "main"
                    :files ("*.el"))
-  :hook prog-mode
+  ;; :hook prog-mode
   :bind (
          :map copilot-completion-map
          ("<tab>" . copilot-accept-completion)
          ("TAB" . copilot-accept-completion))
 
   :config
-  ;; (add-to-list 'copilot-indentation-alist '(prog-mode . 2))
+  (add-to-list 'copilot-indentation-alist '(prog-mode . 2))
   (add-to-list 'copilot-indentation-alist '(org-mode . 2))
   (add-to-list 'copilot-indentation-alist '(sql-mode . 2))
   ;; (add-to-list 'copilot-indentation-alist '(text-mode . 2))
