@@ -21,8 +21,6 @@
       ring-bell-function 'ignore
       frame-inhibit-implied-resize t
       inhibit-startup-screen t
-      ;; dired
-      dired-listing-switches "-lah"  ; human readable file sizes
       )
 
 (setq-default
@@ -398,11 +396,12 @@ The result is returned as a string."
 
 ;; dired
 
-(defun dired-mode-setup ()
-  "Setup for dired mode."
-  (dired-hide-details-mode t))
-
-(add-hook 'dired-mode-hook 'dired-mode-setup)
+(use-package dired
+  :ensure nil
+  :hook (dired-mode . dired-hide-details-mode)
+  :custom
+  (dired-use-ls-dired nil)
+  (dired-listing-switches "-lah"))  ; human readable file sizes
 
 ;; Keybindings
 
