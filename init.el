@@ -21,11 +21,6 @@
       ring-bell-function 'ignore
       frame-inhibit-implied-resize t
       inhibit-startup-screen t
-      ;; org mode
-      org-support-shift-select t
-      org-startup-indented t
-      org-log-done 'time
-      org-priority-enable-commands nil
       ;; dired
       dired-listing-switches "-lah"  ; human readable file sizes
       )
@@ -259,10 +254,18 @@
 
 (use-package org
   :ensure nil
-  :custom (org-confirm-babel-evaluate nil))
+  :defer t
+  :custom (org-confirm-babel-evaluate nil)
+  :config
+  (setq
+      org-support-shift-select t
+      org-startup-indented t
+      org-log-done 'time
+      org-priority-enable-commands nil))
 
 (use-package ob
   :ensure nil
+  :after org
   :config
   (add-to-list 'org-src-lang-modes '("swift" . swift))
   (org-babel-do-load-languages 'org-babel-load-languages '((swift . t)
