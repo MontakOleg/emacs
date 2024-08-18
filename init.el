@@ -44,6 +44,12 @@
   (setq modus-themes-to-toggle '(modus-operandi-tinted modus-vivendi-tinted))
   (modus-themes-load-theme 'modus-operandi-tinted))
 
+(use-package hl-line
+  :ensure nil
+  :init
+  (global-hl-line-mode)
+  (set-face-background hl-line-face "gray91"))
+
 ;; (disable-theme 'modus-operandi-tinted)
 ;; (load-theme 'tango-dark)
 
