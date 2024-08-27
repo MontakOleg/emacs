@@ -21,6 +21,7 @@
       ring-bell-function 'ignore
       frame-inhibit-implied-resize t
       inhibit-startup-screen t
+      kill-do-not-save-duplicates t
       )
 
 (setq-default
@@ -109,6 +110,7 @@
 ;;; Packages
 
 (require 'package)
+(setq package-install-upgrade-built-in t)
 
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
 
@@ -286,6 +288,7 @@
   (ejc-jdbc-drivers
    '("sqlite"     [org.xerial/sqlite-jdbc "3.46.0.1"]
      "postgresql" [postgresql/postgresql "9.3-1102.jdbc41"]))
+  (clomacs-httpd-default-port 8099)
   :after (sql-mode org-mode))
 
 ;; yaml
