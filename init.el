@@ -238,6 +238,7 @@
   :interpreter "swift")
 
 (use-package eglot
+  :hook ((swift-mode . eglot-ensure))
   :custom
   (eglot-autoshutdown t)
   :config
