@@ -110,7 +110,7 @@
 ;;; Packages
 
 (require 'package)
-(setq package-install-upgrade-built-in t)
+(setopt package-install-upgrade-built-in t)
 
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
 
@@ -186,6 +186,7 @@
   )
 
 (use-package marginalia
+  :after vertico
   :config
   (marginalia-mode 1))
 

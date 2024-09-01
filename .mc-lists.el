@@ -10,6 +10,8 @@
         ns-copy-including-secondary
         org-beginning-of-line
         org-self-insert-command
+        org-yank
+        upcase-char
         ))
 
 (setq mc/cmds-to-run-once
