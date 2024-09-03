@@ -59,7 +59,6 @@
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
 (column-number-mode 1)
-(electric-pair-mode 1)
 
 ;; Line numbers in prog mode
 (add-hook 'prog-mode-hook (lambda () (display-line-numbers-mode 1)))
