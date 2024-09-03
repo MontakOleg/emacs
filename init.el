@@ -26,7 +26,9 @@
 
 (setq-default
  indent-tabs-mode nil
- cursor-type 'bar)
+ cursor-type 'bar
+ initial-scratch-message ""
+ )
 
 ;; Font
 (setq-default line-spacing 0.1)
