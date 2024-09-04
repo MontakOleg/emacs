@@ -248,11 +248,18 @@
          )
        "Font-lock keywords to add for 0xRRGGBB colors.")
 
+(defun enable-rainbow-mode-for-palette-files ()
+  "Enable rainbow-mode for specific Swift files."
+  (let ((filename (buffer-file-name)))
+    (when (and filename
+               (string-match-p "\\(Palette.swift\\|DSPalette.swift\\)$" filename))
+      (rainbow-mode 1))))
+
+
 (use-package rainbow-mode
-  :hook prog-mode
+  :hook (swift-mode . enable-rainbow-mode-for-palette-files)
   :config
-  (add-hook 'rainbow-keywords-hook #'add-hexdecimal-color-hook)
-)
+  (add-hook 'rainbow-keywords-hook #'add-hexdecimal-color-hook))
 
 ;; ruby
 
