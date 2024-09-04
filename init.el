@@ -1,3 +1,7 @@
+;;; init.el --- The main entry for emacs -*- lexical-binding: t -*-
+;;; Commentary:
+;;; Code:
+
 ;; The default is 800 kilobytes.  Measured in bytes.
 (setq gc-cons-threshold (* 100 1024 1024))
 
@@ -484,3 +488,5 @@ The result is returned as a string."
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+
+;;; init.el ends here
