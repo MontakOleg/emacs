@@ -360,7 +360,14 @@
   (magit-diff-refine-hunk 'all))
 
 (use-package forge
-  :after magit)
+  :after magit
+  :custom
+  (forge-status-buffer-default-topic-filters (forge--topics-spec
+                                              :type 'pullreq
+                                              :active nil
+                                              :state 'open
+                                              :limit 50
+                                              :order 'newest)))
 
 ;; evil-nerd-commenter
 
