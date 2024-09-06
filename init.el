@@ -335,9 +335,13 @@
 
 ;; gptel
 
+(setq auth-sources '("~/.authinfo"))
+
 (use-package gptel
   :bind
-  ("C-c RET" . gptel-send))
+  ("C-c RET" . gptel-send)
+  :custom
+  (gptel-model "gpt-4o"))
 
 ;; helpful
 
@@ -349,8 +353,6 @@
   ([remap describe-key] . helpful-key))
 
 ;; magit
-
-(setq auth-sources '("~/.authinfo"))
 
 (use-package magit
   :commands (magit-status)
