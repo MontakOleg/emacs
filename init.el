@@ -268,9 +268,23 @@
 
 ;; swift
 
+(defun swiftformat-buffer ()
+  "Format the current buffer using swiftformat."
+  (interactive)
+  (when (eq major-mode 'swift-mode)
+    (let ((current-file (buffer-file-name)))
+      (when current-file
+        (save-buffer)
+        (shell-command (format "swiftformat %s" (shell-quote-argument current-file)))
+        (revert-buffer t t t)))))
+
+;; (global-set-key (kbd "C-c C-f") 'swiftformat-buffer)
+
 (use-package swift-mode
   :mode ("\\.swift\\'" . swift-mode)
   :custom (swift-mode:parenthesized-expression-offset 4)
+  :bind ( :map swift-mode-map
+          ("C-c C-l" . swiftformat-buffer))
   :interpreter "swift")
 
 (use-package eglot
