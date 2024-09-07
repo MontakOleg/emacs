@@ -270,6 +270,7 @@
 
 (use-package swift-mode
   :mode ("\\.swift\\'" . swift-mode)
+  :custom (swift-mode:parenthesized-expression-offset 4)
   :interpreter "swift")
 
 (use-package eglot
