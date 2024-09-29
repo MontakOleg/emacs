@@ -2,9 +2,6 @@
 ;;; Commentary:
 ;;; Code:
 
-;; The default is 800 kilobytes.  Measured in bytes.
-(setq gc-cons-threshold (* 100 1024 1024))
-
 ;; (setq use-package-verbose t)
 
 (setq native-comp-async-report-warnings-errors nil)
@@ -23,7 +20,6 @@
 (setq save-interprogram-paste-before-kill t
       backup-by-copying t
       ring-bell-function 'ignore
-      frame-inhibit-implied-resize t
       inhibit-startup-screen t
       kill-do-not-save-duplicates t
       )
@@ -60,8 +56,6 @@
 ;; (disable-theme 'modus-operandi-tinted)
 ;; (load-theme 'tango-dark)
 
-(tool-bar-mode -1)
-(scroll-bar-mode -1)
 (column-number-mode 1)
 
 ;; Line numbers in prog mode
