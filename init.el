@@ -328,6 +328,7 @@
   (org-babel-do-load-languages 'org-babel-load-languages '((swift . t)
                                                            (http . t)
                                                            (sql . t)
+                                                           (python . t)
                                                            (sqlite . t)
                                                            (emacs-lisp . t)
                                                            (shell . t))))
