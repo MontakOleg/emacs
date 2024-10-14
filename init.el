@@ -498,7 +498,8 @@ The result is returned as a string."
  ("s-d" . duplicate-line-or-region)
  ("s-f" . consult-line)
  ("s-F" . consult-ripgrep)
- ("M-z" . zap-up-to-char))
+ ("M-z" . zap-up-to-char)
+ ("<M-backspace>" . my-backward-delete-word))
 
 ;;;
 
