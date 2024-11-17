@@ -472,6 +472,33 @@ The result is returned as a string."
   "Locate the sourcekit-lsp executable in the active Xcode installation and return its path."
   (list (my-swift-mode:xcrun "--find" "sourcekit-lsp")))
 
+;;; xref-eglot+dumb-jump
+
+(defun xref-eglot+dumb-backend ()
+  "Return the xref backend for eglot+dumb."
+  'eglot+dumb)
+
+(advice-add 'eglot-xref-backend :override 'xref-eglot+dumb-backend)
+
+(cl-defmethod xref-backend-identifier-at-point ((_backend (eql eglot+dumb)))
+  "Return the identifier at point for eglot+dumb."
+  (cons (xref-backend-identifier-at-point 'eglot)
+        (xref-backend-identifier-at-point 'dumb-jump)))
+
+(cl-defmethod xref-backend-identifier-completion-table ((_backend (eql eglot+dumb)))
+  (xref-backend-identifier-completion-table 'eglot))
+
+(cl-defmethod xref-backend-definitions ((_backend (eql eglot+dumb)) identifier)
+  (or (xref-backend-definitions 'eglot (car identifier))
+      (xref-backend-definitions 'dumb-jump (cdr identifier))))
+
+(cl-defmethod xref-backend-references ((_backend (eql eglot+dumb)) identifier)
+  (or (xref-backend-references 'eglot (car identifier))
+      (xref-backend-references 'dumb-jump (cdr identifier))))
+
+(cl-defmethod xref-backend-apropos ((_backend (eql eglot+dumb)) pattern)
+  (xref-backend-apropos 'eglot pattern))
+
 ;;; End of Xcode + Eglot
 
 ;; dired
