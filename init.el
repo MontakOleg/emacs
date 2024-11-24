@@ -22,6 +22,7 @@
       ring-bell-function 'ignore
       inhibit-startup-screen t
       kill-do-not-save-duplicates t
+      scroll-conservatively 101       ; scroll by one line
       )
 
 (setq-default

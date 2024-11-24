@@ -4,6 +4,7 @@
 (setq mc/cmds-to-run-for-all
       '(
         capitalize-dwim
+        evilnc-comment-or-uncomment-lines
         indent-for-tab-command
         keyboard-escape-quit
         my-kill-line-or-region
