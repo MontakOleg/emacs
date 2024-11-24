@@ -22,7 +22,8 @@
       ring-bell-function 'ignore
       inhibit-startup-screen t
       kill-do-not-save-duplicates t
-      scroll-conservatively 101       ; scroll by one line
+      scroll-conservatively 101       ; Scroll by one line
+      help-window-select t            ; Switching the focus to the help window when it's opened.
       )
 
 ;; smooth scrolling
