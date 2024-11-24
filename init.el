@@ -35,9 +35,7 @@
  )
 
 ;; Font
-(setq-default line-spacing 0.1)
 (set-face-attribute 'default nil
-                    ;; :family "JetBrains Mono"
                     :family "Fira Code"
                     :height 150)
 
