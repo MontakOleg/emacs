@@ -25,6 +25,9 @@
       scroll-conservatively 101       ; scroll by one line
       )
 
+;; smooth scrolling
+(pixel-scroll-precision-mode 1)
+
 (setq-default
  indent-tabs-mode nil
  cursor-type 'bar
