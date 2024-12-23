@@ -218,7 +218,8 @@
 (recentf-mode 1)
 
 ;; restclient
-(use-package restclient)
+(use-package restclient
+  :mode ("\\.http\\'" . restclient-mode))
 
 ;; languagetool
 
