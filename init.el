@@ -148,8 +148,7 @@
 (use-package copilot
   :quelpa (copilot :fetcher github
                    :repo "copilot-emacs/copilot.el"
-                   :branch "main"
-                   :files ("*.el"))
+                   :branch "main")
   ;; :hook prog-mode
   :bind (
          :map copilot-completion-map
