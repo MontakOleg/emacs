@@ -59,6 +59,10 @@
 ;; (disable-theme 'modus-operandi-tinted)
 ;; (load-theme 'tango-dark)
 
+;; Disable mouse-wheel-text-scale on Control+wheel
+(global-unset-key (kbd "C-<wheel-down>"))
+(global-unset-key (kbd "C-<wheel-up>"))
+
 (column-number-mode 1)
 
 ;; Line numbers in prog mode
