@@ -377,6 +377,8 @@
 
 (use-package magit
   :commands (magit-status)
+  :bind (:map magit-mode-map
+              ("C-c p" . git-pile-prefix))
   :custom
   (magit-display-buffer-function 'magit-display-buffer-same-window-except-diff-v1)
   (magit-define-global-key-bindings 'recommended)
@@ -391,6 +393,41 @@
                                               :state 'open
                                               :limit 50
                                               :order 'newest)))
+
+;; git-pile in magit
+
+(transient-define-prefix git-pile-prefix ()
+  "Git-pile for submit pull requests.
+See https://github.com/keith/git-pile"
+  ["Actions"
+   ("p" "Submit PR" git-pile-submitpr)
+   ("u" "Update PR" git-pile-updatepr)
+   ("U" "Update PR by squash" git-pile-updatepr-squash)
+   ("r" "Rebase PR" git-pile-rebasepr)])
+
+(defun git-pile-submitpr (commit)
+  "Submit new pull request from selected COMMIT."
+  (interactive (list (magit-commit-at-point)))
+  (when (not commit) (user-error "No commit selected"))
+  (magit-run-git-async "submitpr" commit))
+
+(defun git-pile-updatepr (commit)
+  "Update existing pull request with selected COMMIT."
+  (interactive (list (magit-commit-at-point)))
+  (when (not commit) (user-error "No commit selected"))
+  (magit-run-git-async "updatepr" commit))
+
+(defun git-pile-updatepr-squash (commit)
+  "Update existing pull request with selected COMMIT by squash."
+  (interactive (list (magit-commit-at-point)))
+  (when (not commit) (user-error "No commit selected"))
+  (magit-run-git-async "updatepr" commit "--squash"))
+
+(defun git-pile-rebasepr (commit)
+  "Rebase existing pull request created from COMMIT to origin."
+  (interactive (list (magit-commit-at-point)))
+  (when (not commit) (user-error "No commit selected"))
+  (magit-run-git-async "rebasepr" commit))
 
 ;; evil-nerd-commenter
 
