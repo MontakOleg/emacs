@@ -402,7 +402,9 @@ See https://github.com/keith/git-pile"
    ("p" "Submit PR" git-pile-submitpr)
    ("u" "Update PR" git-pile-updatepr)
    ("U" "Update PR by squash" git-pile-updatepr-squash)
-   ("r" "Rebase PR" git-pile-rebasepr)])
+   ("r" "Rebase PR" git-pile-rebasepr)
+   ("R" "Replace PR" git-pile-replacepr)
+   ("k" "Delete branch" git-pile-cleanupbranch)])
 
 (defun git-pile-submitpr (commit)
   "Submit new pull request from selected COMMIT."
@@ -427,6 +429,18 @@ See https://github.com/keith/git-pile"
   (interactive (list (magit-commit-at-point)))
   (when (not commit) (user-error "No commit selected"))
   (magit-run-git-async "rebasepr" commit))
+
+(defun git-pile-replacepr (commit)
+  "Entirely replace the contents of the underlying branch with a new COMMIT."
+  (interactive (list (magit-commit-at-point)))
+  (when (not commit) (user-error "No commit selected"))
+  (magit-run-git-async "replacepr" commit))
+
+(defun git-pile-cleanupbranch (commit)
+  "Remove local and remote branch created from COMMIT."
+  (interactive (list (magit-commit-at-point)))
+  (when (not commit) (user-error "No commit selected"))
+  (magit-run-git-async "pilecleanupremotebranch" commit))
 
 ;; evil-nerd-commenter
 
