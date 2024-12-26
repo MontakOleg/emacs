@@ -287,8 +287,6 @@
         (shell-command (format "swiftformat %s" (shell-quote-argument current-file)))
         (revert-buffer t t t)))))
 
-;; (global-set-key (kbd "C-c C-f") 'swiftformat-buffer)
-
 (use-package swift-mode
   :mode ("\\.swift\\'" . swift-mode)
   :custom (swift-mode:parenthesized-expression-offset 4)
@@ -371,6 +369,12 @@
   ([remap describe-command] . helpful-command)
   ([remap describe-variable] . helpful-variable)
   ([remap describe-key] . helpful-key))
+
+;; smerge
+(use-package smerge-mode
+  :ensure nil
+  :init
+  (setq smerge-command-prefix (kbd "C-c v")))
 
 ;; magit
 
