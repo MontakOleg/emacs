@@ -565,7 +565,9 @@ The result is returned as a string."
   :hook (dired-mode . dired-hide-details-mode)
   :custom
   (dired-use-ls-dired nil)
-  (dired-listing-switches "-lah"))  ; human readable file sizes
+  (dired-listing-switches "-lah")  ; human readable file sizes
+  (dired-recursive-deletes 'always)
+  (dired-recursive-copies 'always))
 
 ;; Keybindings
 
