@@ -22,12 +22,12 @@
       ring-bell-function 'ignore
       inhibit-startup-screen t
       kill-do-not-save-duplicates t
-      scroll-conservatively 101       ; Scroll by one line
-      help-window-select t            ; Switching the focus to the help window when it's opened.
+      scroll-conservatively 101             ; Scroll by one line
+      help-window-select t                  ; Switching the focus to the help window when it's opened.
+      global-auto-revert-non-file-buffers t ; Auto reload Dired and other buffers
+      use-dialog-box nil                    ; Don't pop up UI dialogs when prompting
+      enable-recursive-minibuffers t
       )
-
-;; smooth scrolling
-(pixel-scroll-precision-mode 1)
 
 (setq-default
  indent-tabs-mode nil
@@ -56,39 +56,24 @@
   (global-hl-line-mode)
   (set-face-background hl-line-face "gray91"))
 
-;; (disable-theme 'modus-operandi-tinted)
-;; (load-theme 'tango-dark)
-
 ;; Disable mouse-wheel-text-scale on Control+wheel
 (global-unset-key (kbd "C-<wheel-down>"))
 (global-unset-key (kbd "C-<wheel-up>"))
 
-(column-number-mode 1)
+;; Make ESC quit promts
+(global-set-key (kbd "<escape>") 'keyboard-escape-quit)
 
 ;; Line numbers in prog mode
 (add-hook 'prog-mode-hook (lambda () (display-line-numbers-mode 1)))
 
-;; Make ESC quit promts
-(global-set-key (kbd "<escape>") 'keyboard-escape-quit)
-
-;; Auto reload from disk
-(global-auto-revert-mode 1)
-
-;; Auto reload Dired and other buffers
-(setq global-auto-revert-non-file-buffers t)
-
-;; Save minibuffer prompts history
-(setq history-length 25)
-(savehist-mode 1)
-
-;; Autosave right in files, not in #files#
-(auto-save-visited-mode 1)
-
-;; Don't pop up UI dialogs when prompting
-(setq use-dialog-box nil)
-
-;; Typing with an active selection overwrites
-(delete-selection-mode t)
+(savehist-mode 1)           ; Save minibuffer prompts history
+(global-auto-revert-mode 1) ; Auto reload from disk
+(auto-save-visited-mode 1)  ; Autosave right in files, not in #files#
+(delete-selection-mode t)   ; Typing with an active selection overwrites
+(column-number-mode 1)      ; Display columns in mode line
+(pixel-scroll-precision-mode 1) ; Smooth scrolling
+(minibuffer-depth-indicate-mode 1)
+(recentf-mode 1)
 
 ;; Ediff
 (setq
@@ -107,11 +92,6 @@
 (global-set-key (kbd "s-+") 'hs-show-all)
 (global-set-key (kbd "s--") 'hs-hide-block)
 (global-set-key (kbd "s-_") 'hs-hide-all)
-
-;; Minibuffer
-
-(setq enable-recursive-minibuffers t)
-(minibuffer-depth-indicate-mode 1)
 
 ;;; Packages
 
@@ -214,8 +194,6 @@
 
 (use-package embark-consult)
 
-(recentf-mode 1)
-
 ;; restclient
 (use-package restclient
   :mode ("\\.http\\'" . restclient-mode))
@@ -253,7 +231,7 @@
        "Font-lock keywords to add for 0xRRGGBB colors.")
 
 (defun enable-rainbow-mode-for-palette-files ()
-  "Enable rainbow-mode for specific Swift files."
+  "Enable 'rainbow-mode' for specific Swift files."
   (let ((filename (buffer-file-name)))
     (when (and filename
                (string-match-p "\\(Palette.swift\\|DSPalette.swift\\)$" filename))
@@ -526,9 +504,6 @@ The result is returned as a string."
 
 ;; Keybindings
 
-(autoload 'zap-up-to-char "misc"
-  "Kill up to, but not including ARGth occurrence of CHAR." t)
-
 (bind-keys
  ("s-Z" . undo-redo)
  ("C-J" . my-join-line)
@@ -539,7 +514,6 @@ The result is returned as a string."
  ("s-d" . duplicate-line-or-region)
  ("s-f" . consult-line)
  ("s-F" . consult-ripgrep)
- ("M-z" . zap-up-to-char)
  ("<M-backspace>" . my-backward-delete-word))
 
 ;;;
