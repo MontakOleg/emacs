@@ -123,6 +123,10 @@
 
 (require 'quelpa-use-package)
 
+;; Local packages bootstrap
+
+(add-to-list 'load-path (concat user-emacs-directory "localpackages"))
+
 ;; Copilot
 
 (use-package copilot
@@ -442,9 +446,8 @@
 
 ;; Utils
 
-(load (expand-file-name "startup/utils.el" user-emacs-directory))
-
-(add-to-list 'load-path (concat user-emacs-directory "localpackages"))
+(use-package my-utils
+  :ensure nil)
 
 ;; kotlin-ts-mode
 
