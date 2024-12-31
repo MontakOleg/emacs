@@ -419,7 +419,7 @@
 (use-package dumb-jump
   :init
   (add-hook 'xref-backend-functions #'dumb-jump-xref-activate)
-  (setq dumb-jump-force-searcher 'ag))
+  (setq dumb-jump-force-searcher 'rg))
 
 ;; wgrep
 
