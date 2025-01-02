@@ -74,6 +74,7 @@
 (pixel-scroll-precision-mode 1) ; Smooth scrolling
 (minibuffer-depth-indicate-mode 1)
 (recentf-mode 1)
+(context-menu-mode 1)
 
 ;; Ediff
 (setq
