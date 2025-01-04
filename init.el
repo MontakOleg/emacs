@@ -393,6 +393,12 @@
   :bind (:map magit-mode-map
               ("C-c p" . git-pile-prefix)))
 
+;; project
+
+(use-package project
+  :config
+  (add-to-list 'project-switch-commands '(magit-project-status "Magit" ?m)))
+
 ;; evil-nerd-commenter
 
 (use-package evil-nerd-commenter
