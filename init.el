@@ -33,6 +33,7 @@
  indent-tabs-mode nil
  cursor-type 'bar
  initial-scratch-message ""
+ tab-width 4
  )
 
 ;; Font
