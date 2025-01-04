@@ -15,7 +15,7 @@
 
 (add-hook 'emacs-startup-hook #'efs/display-startup-time)
 
-;;; UI
+;;; Sane defaults
 
 (setq save-interprogram-paste-before-kill t
       backup-by-copying t
@@ -25,16 +25,18 @@
       scroll-conservatively 101             ; Scroll by one line
       help-window-select t                  ; Switching the focus to the help window when it's opened.
       global-auto-revert-non-file-buffers t ; Auto reload Dired and other buffers
-      use-dialog-box nil                    ; Don't pop up UI dialogs when prompting
+      use-dialog-box nil                    ; Don't pop up UI dialog when prompting
       enable-recursive-minibuffers t
       )
 
-(setq-default
- indent-tabs-mode nil
- cursor-type 'bar
- initial-scratch-message ""
- tab-width 4
- )
+;; Some variables are buffer-local, so changing them using setq will
+;; only change them in a single buffer. Using setq-default we change
+;; the buffer-local variable’s default value.
+
+(setq-default indent-tabs-mode nil
+              cursor-type 'bar
+              initial-scratch-message ""
+              tab-width 4)
 
 ;; Font
 (set-face-attribute 'default nil
@@ -67,6 +69,8 @@
 ;; Line numbers in prog mode
 (add-hook 'prog-mode-hook (lambda () (display-line-numbers-mode 1)))
 
+;; Default modes
+
 (savehist-mode 1)           ; Save minibuffer prompts history
 (global-auto-revert-mode 1) ; Auto reload from disk
 (auto-save-visited-mode 1)  ; Autosave right in files, not in #files#
@@ -76,6 +80,12 @@
 (minibuffer-depth-indicate-mode 1)
 (recentf-mode 1)
 (context-menu-mode 1)
+
+;; EditorConfig
+
+(use-package editorconfig
+  :config
+  (editorconfig-mode 1))
 
 ;; Ediff
 (setq
