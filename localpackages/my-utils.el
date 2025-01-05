@@ -2,7 +2,7 @@
 ;;; Commentary:
 ;;; code:
 
-(defun command-output-to-string (command &rest args)
+(defun my/command-output-to-string (command &rest args)
   "Like `shell-command-to-string' but dropping error output.
 Also trims whitespace from the ends of any output."
   (string-trim
@@ -10,7 +10,7 @@ Also trims whitespace from the ends of any output."
     (with-current-buffer standard-output
       (apply #'call-process command nil '(t nil) nil args)))))
 
-(defun my-comment-or-uncomment ()
+(defun my/comment-or-uncomment ()
   "Comment or uncomment selected region or line."
   (interactive)
   (if (use-region-p)
@@ -23,7 +23,7 @@ Also trims whitespace from the ends of any output."
         (comment-or-uncomment-region start end))
     (comment-line 1)))
 
-(defun duplicate-line-or-region (&optional n)
+(defun my/duplicate-line-or-region (&optional n)
   "Duplicate current line, or region if active.
 With argument N, make N copies.
 With negative N, comment out original line and use the absolute value."
@@ -45,21 +45,21 @@ With negative N, comment out original line and use the absolute value."
         (forward-line 1)
         (forward-char pos)))))
 
-(defun my-join-line (&optional arg beg end)
+(defun my/join-line (&optional arg beg end)
   "Join next line into current one."
   (interactive)
   (if (use-region-p)
       (join-line 'nil (region-beginning) (region-end))
     (join-line 1)))
 
-(defun my-kill-line-or-region ()
+(defun my/kill-line-or-region ()
   "If nothing selected, kill whole line, else kill region."
   (interactive)
   (if (use-region-p)
       (kill-region (region-beginning) (region-end))
     (kill-whole-line)))
 
-(defun my-delete-word (arg)
+(defun my/delete-word (arg)
   "Delete characters forward until encountering the end of a word.
 With argument, do this that many times.
 This command does not push text to `kill-ring'."
@@ -70,12 +70,12 @@ This command does not push text to `kill-ring'."
      (forward-word arg)
      (point))))
 
-(defun my-backward-delete-word (arg)
+(defun my/backward-delete-word (arg)
   "Delete characters backward until encountering the beginning of a word.
 With argument, do this that many times.
 This command does not push text to `kill-ring'."
   (interactive "p")
-  (my-delete-word (- arg)))
+  (my/delete-word (- arg)))
 
 (provide 'my-utils)
 

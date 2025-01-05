@@ -484,7 +484,7 @@
   "Invoke xcrun with the given ARGS.
 
 The result is returned as a string."
-  (apply #'command-output-to-string "xcrun" args))
+  (apply #'my/command-output-to-string "xcrun" args))
 
 ;;;###autoload
 (defun my-swift-mode:eglot-server-contact (_ignored)
@@ -541,16 +541,16 @@ The result is returned as a string."
 
 (bind-keys
  ("s-Z" . undo-redo)
- ("C-J" . my-join-line)
- ("s-x" . my-kill-line-or-region)
+ ("C-J" . my/join-line)
+ ("s-x" . my/kill-line-or-region)
  ("s-O" . project-find-file)
  ("M-s-l" . indent-region)
  ("s-<f12>" . consult-imenu)
- ("s-d" . duplicate-line-or-region)
+ ("s-d" . my/duplicate-line-or-region)
  ("s-f" . consult-line)
  ("s-F" . consult-ripgrep)
- ("<M-backspace>" . my-backward-delete-word)
- ("s-/" . my-comment-or-uncomment))
+ ("<M-backspace>" . my/backward-delete-word)
+ ("s-/" . my/comment-or-uncomment))
 
 ;;;
 
