@@ -14,7 +14,13 @@ Also trims whitespace from the ends of any output."
   "Comment or uncomment selected region or line."
   (interactive)
   (if (use-region-p)
-      (comment-or-uncomment-region (region-beginning) (region-end))
+      (let ((start (save-excursion
+                     (goto-char (region-beginning))
+                     (line-beginning-position)))
+            (end (save-excursion
+                   (goto-char (region-end))
+                   (if (bolp) (point) (line-end-position)))))
+        (comment-or-uncomment-region start end))
     (comment-line 1)))
 
 (defun duplicate-line-or-region (&optional n)
