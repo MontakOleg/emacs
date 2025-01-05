@@ -10,6 +10,13 @@ Also trims whitespace from the ends of any output."
     (with-current-buffer standard-output
       (apply #'call-process command nil '(t nil) nil args)))))
 
+(defun my-comment-or-uncomment ()
+  "Comment or uncomment selected region or line."
+  (interactive)
+  (if (use-region-p)
+      (comment-or-uncomment-region (region-beginning) (region-end))
+    (comment-line 1)))
+
 (defun duplicate-line-or-region (&optional n)
   "Duplicate current line, or region if active.
 With argument N, make N copies.
