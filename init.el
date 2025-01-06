@@ -43,9 +43,6 @@
                     :family "Fira Code"
                     :height 150)
 
-;; Maximize window
-(toggle-frame-maximized)
-
 ;; Themes
 (use-package emacs
   :config
@@ -551,6 +548,13 @@ The result is returned as a string."
  ("s-F" . consult-ripgrep)
  ("<M-backspace>" . my/backward-delete-word)
  ("s-/" . my/comment-or-uncomment))
+
+;; start server
+
+(require 'server)
+
+(unless (server-running-p)
+  (server-start))
 
 ;;;
 
