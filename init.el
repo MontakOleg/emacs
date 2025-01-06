@@ -534,6 +534,11 @@ The result is returned as a string."
   :bind (("S-M-<down>" . move-text-down)
          ("S-M-<up>" . move-text-up)))
 
+;;; mise
+
+(use-package mise
+  :hook (after-init . global-mise-mode))
+
 ;; Keybindings
 
 (bind-keys
@@ -571,7 +576,7 @@ The result is returned as a string."
  '(custom-safe-themes
    '("c7a926ad0e1ca4272c90fce2e1ffa7760494083356f6bb6d72481b879afce1f2" "c1638a7061fb86be5b4347c11ccf274354c5998d52e6d8386e997b862773d1d2" default))
  '(package-selected-packages
-   '(diminish move-text eglot kotlin-ts-mode jinx restclient go-mode rainbow-mode git-modes forge cape ejc-sql corfu gptel ob-http ob-swift editorconfig copilot quelpa-use-package quelpa exec-path-from-shell languagetool markdown-mode vterm embark-consult embark orderless consult marginalia vertico modus-themes wgrep dumb-jump multiple-cursors expand-region magit helpful yaml-mode swift-mode)))
+   '(mise diminish move-text eglot kotlin-ts-mode jinx restclient go-mode rainbow-mode git-modes forge cape ejc-sql corfu gptel ob-http ob-swift editorconfig copilot quelpa-use-package quelpa exec-path-from-shell languagetool markdown-mode vterm embark-consult embark orderless consult marginalia vertico modus-themes wgrep dumb-jump multiple-cursors expand-region magit helpful yaml-mode swift-mode)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
