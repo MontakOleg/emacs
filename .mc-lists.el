@@ -7,7 +7,7 @@
         evilnc-comment-or-uncomment-lines
         indent-for-tab-command
         keyboard-escape-quit
-        my-kill-line-or-region
+        my/kill-line-or-region
         ns-copy-including-secondary
         org-beginning-of-line
         org-self-insert-command
