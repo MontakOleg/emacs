@@ -548,8 +548,7 @@ The result is returned as a string."
 (use-package diff-hl
   :config
   (global-diff-hl-mode)
-  ;; (add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh t)
-  )
+  (add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh t))
 
 ;; Keybindings
 
