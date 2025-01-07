@@ -27,6 +27,7 @@
       global-auto-revert-non-file-buffers t ; Auto reload Dired and other buffers
       use-dialog-box nil                    ; Don't pop up UI dialog when prompting
       enable-recursive-minibuffers t
+      tab-always-indent 'complete
       )
 
 ;; Some variables are buffer-local, so changing them using setq will
