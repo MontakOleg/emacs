@@ -236,6 +236,7 @@
 ;; jinx
 
 (use-package jinx
+  :diminish jinx-mode
   :hook (emacs-startup . global-jinx-mode)
   :bind (("M-$" . jinx-correct))
   :custom
@@ -539,6 +540,7 @@ The result is returned as a string."
 ;;; mise
 
 (use-package mise
+  :diminish mise-mode
   :hook (after-init . global-mise-mode))
 
 ;; diff-hl
