@@ -364,7 +364,7 @@
   :bind
   ("C-c RET" . gptel-send)
   :custom
-  (gptel-model "gpt-4o"))
+  (gptel-model 'gpt-4o))
 
 ;; helpful
 
