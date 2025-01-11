@@ -120,39 +120,19 @@
 (require 'use-package)
 (setq use-package-always-ensure t)
 
-;; Quelpa
-
-(use-package quelpa
-  :commands quelpa
-  :custom
-  (quelpa-git-clone-depth 1)
-  (quelpa-self-upgrade-p nil)
-  (quelpa-update-melpa-p nil)
-  (quelpa-checkout-melpa-p nil))
-
-(quelpa
- '(quelpa-use-package
-   :fetcher git
-   :url "https://github.com/quelpa/quelpa-use-package.git"))
-
-(require 'quelpa-use-package)
-
-;; Local packages bootstrap
+;;; Local packages bootstrap
 
 (add-to-list 'load-path (concat user-emacs-directory "localpackages"))
 
-;; Copilot
+;;; Copilot
 
 (use-package copilot
-  :quelpa (copilot :fetcher github
-                   :repo "copilot-emacs/copilot.el"
-                   :branch "main")
+  :vc (:url "https://github.com/copilot-emacs/copilot.el"
+            :branch "main")
   ;; :hook prog-mode
-  :bind (
-         :map copilot-completion-map
-         ("<tab>" . copilot-accept-completion)
-         ("TAB" . copilot-accept-completion))
-
+  :bind (:map copilot-completion-map
+              ("<tab>" . copilot-accept-completion)
+              ("TAB" . copilot-accept-completion))
   :config
   (add-to-list 'copilot-indentation-alist '(prog-mode 2))
   (add-to-list 'copilot-indentation-alist '(org-mode 2))
@@ -589,14 +569,16 @@ The result is returned as a string."
      "c1638a7061fb86be5b4347c11ccf274354c5998d52e6d8386e997b862773d1d2"
      default))
  '(package-selected-packages
-   '(cape consult copilot corfu diff-hl diminish dumb-jump editorconfig
-          eglot ejc-sql embark embark-consult exec-path-from-shell
-          expand-region faceup forge git-modes go-mode gptel helpful
-          idlwave jinx kotlin-ts-mode languagetool magit marginalia
-          markdown-mode mise modus-themes move-text multiple-cursors
-          ob-http ob-swift orderless org quelpa quelpa-use-package
+   '(cape copilot corfu diff-hl diminish dumb-jump eglot ejc-sql
+          embark-consult exec-path-from-shell expand-region faceup
+          forge git-modes go-mode gptel helpful idlwave jinx
+          kotlin-ts-mode languagetool marginalia mise modus-themes
+          move-text multiple-cursors ob-http ob-swift orderless
           rainbow-mode restclient swift-mode tramp verilog-mode
-          vertico vterm wgrep which-key yaml-mode)))
+          vertico vterm wgrep which-key yaml-mode))
+ '(package-vc-selected-packages
+   '((copilot :url "https://github.com/copilot-emacs/copilot.el" :branch
+              "main"))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
