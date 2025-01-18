@@ -280,7 +280,8 @@
   :interpreter "swift")
 
 (use-package eglot
-  :hook ((swift-mode . eglot-ensure))
+  :hook ((swift-mode . eglot-ensure)
+         (rust-mode . eglot-ensure))
   :custom
   (eglot-autoshutdown t)
   :config
@@ -530,6 +531,10 @@ The result is returned as a string."
   (global-diff-hl-mode)
   (add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh t))
 
+;; mermaid
+(use-package mermaid-mode
+  :defer t)
+
 ;; Keybindings
 
 (bind-keys
@@ -572,10 +577,10 @@ The result is returned as a string."
    '(cape copilot corfu diff-hl diminish dumb-jump eglot ejc-sql
           embark-consult exec-path-from-shell expand-region faceup
           forge git-modes go-mode gptel helpful idlwave jinx
-          kotlin-ts-mode languagetool marginalia mise modus-themes
-          move-text multiple-cursors ob-http ob-swift orderless
-          rainbow-mode restclient swift-mode tramp verilog-mode
-          vertico vterm wgrep which-key yaml-mode))
+          kotlin-ts-mode languagetool marginalia mermaid-mode mise
+          modus-themes move-text multiple-cursors ob-http ob-swift
+          orderless rainbow-mode restclient swift-mode tramp
+          verilog-mode vertico vterm wgrep which-key yaml-mode))
  '(package-vc-selected-packages
    '((copilot :url "https://github.com/copilot-emacs/copilot.el" :branch
               "main"))))
