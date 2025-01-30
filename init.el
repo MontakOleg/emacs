@@ -260,6 +260,12 @@
 (use-package go-mode
   :mode ("\\.go\\'" . go-mode))
 
+;; rust
+
+(use-package rust-ts-mode
+  :ensure nil
+  :mode ("\\.rs\\'" . rust-ts-mode))
+
 ;; swift
 
 (defun swiftformat-buffer ()
@@ -281,7 +287,8 @@
 
 (use-package eglot
   :hook ((swift-mode . eglot-ensure)
-         (rust-mode . eglot-ensure))
+         (rust-mode . eglot-ensure)
+         (rust-ts-mode . eglot-ensure))
   :custom
   (eglot-autoshutdown t)
   :config
