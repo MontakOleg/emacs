@@ -538,6 +538,20 @@ The result is returned as a string."
   (global-diff-hl-mode)
   (add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh t))
 
+;;; all-the-icons
+
+(use-package all-the-icons
+  :if (display-graphic-p))
+
+(use-package all-the-icons-completion
+  :after (marginalia all-the-icons)
+  :hook (marginalia-mode . all-the-icons-completion-marginalia-setup)
+  :init
+  (all-the-icons-completion-mode))
+
+(use-package all-the-icons-dired
+  :hook dired-mode)
+
 ;; Keybindings
 
 (bind-keys
@@ -577,13 +591,15 @@ The result is returned as a string."
      "c1638a7061fb86be5b4347c11ccf274354c5998d52e6d8386e997b862773d1d2"
      default))
  '(package-selected-packages
-   '(cape copilot corfu diff-hl diminish dumb-jump eglot ejc-sql
-          embark-consult exec-path-from-shell expand-region faceup
-          forge git-modes go-mode gptel helpful idlwave jinx
-          kotlin-ts-mode languagetool marginalia mise modus-themes
-          move-text multiple-cursors ob-http ob-swift orderless
-          rainbow-mode restclient swift-mode tramp verilog-mode
-          vertico vterm wgrep which-key yaml-mode))
+   '(all-the-icons all-the-icons-completion all-the-icons-dired
+                   cape copilot corfu diff-hl diminish dumb-jump eglot
+                   ejc-sql embark-consult exec-path-from-shell
+                   expand-region faceup forge git-modes go-mode
+                   gptel helpful idlwave jinx kotlin-ts-mode languagetool
+                   marginalia mise modus-themes move-text multiple-cursors
+                   ob-http ob-swift orderless rainbow-mode restclient
+                   swift-mode tramp verilog-mode vertico vterm wgrep
+                   which-key yaml-mode))
  '(package-vc-selected-packages
    '((copilot :url "https://github.com/copilot-emacs/copilot.el" :branch
               "main"))))
