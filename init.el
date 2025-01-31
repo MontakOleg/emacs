@@ -552,6 +552,10 @@ The result is returned as a string."
 (use-package all-the-icons-dired
   :hook dired-mode)
 
+(use-package doom-modeline
+  :ensure t
+  :init (doom-modeline-mode 1))
+
 ;; Keybindings
 
 (bind-keys
@@ -592,11 +596,12 @@ The result is returned as a string."
      default))
  '(package-selected-packages
    '(all-the-icons all-the-icons-completion all-the-icons-dired
-                   cape copilot corfu diff-hl diminish dumb-jump eglot
-                   ejc-sql embark-consult exec-path-from-shell
-                   expand-region faceup forge git-modes go-mode
-                   gptel helpful idlwave jinx kotlin-ts-mode languagetool
-                   marginalia mise modus-themes move-text multiple-cursors
+                   all-the-icons-dired-mode cape copilot corfu diff-hl
+                   diminish doom-modeline dumb-jump eglot ejc-sql
+                   embark-consult exec-path-from-shell expand-region
+                   faceup forge git-modes go-mode gptel helpful
+                   idlwave jinx kotlin-ts-mode languagetool marginalia
+                   mise modus-themes move-text multiple-cursors
                    ob-http ob-swift orderless rainbow-mode restclient
                    swift-mode tramp verilog-mode vertico vterm wgrep
                    which-key yaml-mode))
