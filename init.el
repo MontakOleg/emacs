@@ -556,6 +556,14 @@ The result is returned as a string."
   :ensure t
   :init (doom-modeline-mode 1))
 
+;;; which-key
+
+(use-package which-key
+  :ensure nil
+  :defer 3
+  :config
+  (which-key-mode))
+
 ;; Keybindings
 
 (bind-keys
