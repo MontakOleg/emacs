@@ -37,7 +37,9 @@
 (setq-default indent-tabs-mode nil
               cursor-type 'bar
               initial-scratch-message ""
-              tab-width 4)
+              tab-width 4
+              display-line-numbers-width 3
+              )
 
 ;; Font
 (set-face-attribute 'default nil
