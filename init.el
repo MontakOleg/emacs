@@ -558,6 +558,7 @@ The result is returned as a string."
 
 (use-package which-key
   :ensure nil
+  :diminish which-key-mode
   :defer 3
   :config
   (which-key-mode))
