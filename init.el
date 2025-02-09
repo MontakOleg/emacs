@@ -30,7 +30,8 @@
       tab-always-indent 'complete
       )
 
-(setopt use-short-answers t)
+(setopt use-short-answers t
+        isearch-lazy-count t)
 
 ;; Some variables are buffer-local, so changing them using setq will
 ;; only change them in a single buffer. Using setq-default we change
