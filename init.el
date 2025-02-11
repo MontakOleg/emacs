@@ -283,12 +283,20 @@
         (shell-command (format "swiftformat %s" (shell-quote-argument current-file)))
         (revert-buffer t t t)))))
 
+(use-package flymake-swiftlint
+  :ensure nil)
+
 (use-package swift-mode
   :mode ("\\.swift\\'" . swift-mode)
+  :hook (swift-mode . flymake-swiftlint-setup)
   :custom (swift-mode:parenthesized-expression-offset 4)
   :bind ( :map swift-mode-map
           ("M-s-l" . swiftformat-buffer))
   :interpreter "swift")
+
+(defun my/setup-eglot-flymake-backend ()
+    "Enable eglot's flymake backend manually."
+    (add-hook 'flymake-diagnostic-functions #'eglot-flymake-backend nil t))
 
 (use-package eglot
   :hook ((swift-mode . eglot-ensure)
@@ -302,6 +310,10 @@
   :custom
   (eglot-autoshutdown t)
   :config
+  (add-hook 'eglot-managed-mode-hook #'my/setup-eglot-flymake-backend)
+  ;; manually manage flymake, otherwise eglot will disable all other backends
+  ;; https://github.com/joaotavora/eglot/issues/268
+  (add-to-list 'eglot-stay-out-of 'flymake)
   (add-to-list 'eglot-server-programs
                '(swift-mode . my-swift-mode:eglot-server-contact)))
 
