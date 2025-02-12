@@ -396,6 +396,7 @@
 (use-package magit
   :commands (magit-status)
   :custom
+  (magit-format-file-function #'magit-format-file-all-the-icons)
   (magit-display-buffer-function 'magit-display-buffer-same-window-except-diff-v1)
   (magit-define-global-key-bindings 'recommended)
   (magit-diff-refine-hunk 'all))
