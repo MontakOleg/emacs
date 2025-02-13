@@ -309,13 +309,21 @@
                              (eglot-ensure))))
   :custom
   (eglot-autoshutdown t)
+  (eglot-events-buffer-config '(:size 0 :format full))
   :config
+  (fset #'jsonrpc--log-event #'ignore)
+  (setq jsonrpc-event-hook nil)
   (add-hook 'eglot-managed-mode-hook #'my/setup-eglot-flymake-backend)
   ;; manually manage flymake, otherwise eglot will disable all other backends
   ;; https://github.com/joaotavora/eglot/issues/268
   (add-to-list 'eglot-stay-out-of 'flymake)
   (add-to-list 'eglot-server-programs
                '(swift-mode . my-swift-mode:eglot-server-contact)))
+
+(use-package eglot-booster
+    :vc (:url "https://github.com/jdtsmith/eglot-booster")
+	:after eglot
+	:config	(eglot-booster-mode))
 
 (use-package ob-swift
   :after org)
@@ -625,17 +633,18 @@ The result is returned as a string."
  '(package-selected-packages
    '(all-the-icons all-the-icons-completion all-the-icons-dired
                    all-the-icons-dired-mode cape copilot corfu diff-hl
-                   diminish dumb-jump eglot ejc-sql embark-consult
-                   exec-path-from-shell expand-region faceup forge
-                   git-modes go-mode gptel helpful idlwave jinx
-                   kotlin-ts-mode languagetool marginalia mise
-                   modus-themes move-text multiple-cursors ob-http
-                   ob-swift orderless rainbow-mode restclient
+                   diminish dumb-jump eglot eglot-booster ejc-sql
+                   embark-consult exec-path-from-shell expand-region
+                   faceup forge git-modes go-mode gptel helpful
+                   idlwave jinx kotlin-ts-mode languagetool marginalia
+                   mise modus-themes move-text multiple-cursors
+                   ob-http ob-swift orderless rainbow-mode restclient
                    swift-mode tramp verilog-mode vertico vterm wgrep
                    which-key yaml-mode))
  '(package-vc-selected-packages
-   '((copilot :url "https://github.com/copilot-emacs/copilot.el" :branch
-              "main"))))
+   '((eglot-booster :url "https://github.com/jdtsmith/eglot-booster")
+     (copilot :url "https://github.com/copilot-emacs/copilot.el"
+              :branch "main"))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
