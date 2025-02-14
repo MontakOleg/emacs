@@ -426,6 +426,10 @@
   :bind (:map magit-mode-map
               ("C-c p" . git-pile-prefix)))
 
+;; git-link
+
+(use-package git-link)
+
 ;; project
 
 (use-package project
@@ -636,12 +640,13 @@ The result is returned as a string."
                    all-the-icons-dired-mode cape copilot corfu diff-hl
                    diminish dumb-jump eglot eglot-booster ejc-sql
                    embark-consult exec-path-from-shell expand-region
-                   faceup forge git-modes go-mode gptel helpful
-                   idlwave jinx kotlin-ts-mode languagetool marginalia
-                   mise modus-themes move-text multiple-cursors
-                   ob-http ob-swift orderless rainbow-mode restclient
-                   swift-mode tramp verilog-mode vertico vterm wgrep
-                   which-key yaml-mode))
+                   faceup forge git-link git-modes go-mode gptel
+                   helpful idlwave jinx kotlin-ts-mode languagetool
+                   marginalia mise modus-themes move-text
+                   multiple-cursors ob-http ob-swift orderless
+                   rainbow-mode restclient swift-mode tramp
+                   verilog-mode vertico vterm wgrep which-key
+                   yaml-mode))
  '(package-vc-selected-packages
    '((eglot-booster :url "https://github.com/jdtsmith/eglot-booster")
      (copilot :url "https://github.com/copilot-emacs/copilot.el"
