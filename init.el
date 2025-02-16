@@ -271,7 +271,19 @@
   :ensure nil
   :mode ("\\.rs\\'" . rust-ts-mode))
 
-;; swift
+;; formatter
+
+(use-package apheleia
+  :config
+  (add-to-list 'apheleia-formatters
+               '(swiftformat "swiftformat"
+                             "--quiet"
+                             (let* ((proj-root (expand-file-name (project-root (project-current))))
+                                    (config-path (expand-file-name ".swiftformat" proj-root)))
+                               (when (file-exists-p config-path)
+                                 (list "--config" config-path)))))
+  (add-to-list 'apheleia-mode-alist
+               '(swift-mode . swiftformat)))
 
 (defun swiftformat-buffer ()
   "Format the current buffer using swiftformat."
@@ -280,15 +292,18 @@
     (let ((current-file (buffer-file-name)))
       (when current-file
         (save-buffer)
-        (shell-command (format "swiftformat %s" (shell-quote-argument current-file)))
+        (shell-command (format "swiftformat --quiet %s" (shell-quote-argument current-file)))
         (revert-buffer t t t)))))
+
+;; swift
 
 (use-package flymake-swiftlint
   :ensure nil)
 
 (use-package swift-mode
   :mode ("\\.swift\\'" . swift-mode)
-  :hook (swift-mode . flymake-swiftlint-setup)
+  :hook ((swift-mode . apheleia-mode)
+         (swift-mode . flymake-swiftlint-setup))
   :custom (swift-mode:parenthesized-expression-offset 4)
   :bind ( :map swift-mode-map
           ("M-s-l" . swiftformat-buffer))
@@ -637,16 +652,16 @@ The result is returned as a string."
      default))
  '(package-selected-packages
    '(all-the-icons all-the-icons-completion all-the-icons-dired
-                   all-the-icons-dired-mode cape copilot corfu diff-hl
-                   diminish dumb-jump eglot eglot-booster ejc-sql
-                   embark-consult exec-path-from-shell expand-region
-                   faceup forge git-link git-modes go-mode gptel
-                   helpful idlwave jinx kotlin-ts-mode languagetool
-                   marginalia mise modus-themes move-text
-                   multiple-cursors ob-http ob-swift orderless
-                   rainbow-mode restclient swift-mode tramp
-                   verilog-mode vertico vterm wgrep which-key
-                   yaml-mode))
+                   all-the-icons-dired-mode apheleia cape copilot
+                   corfu diff-hl diminish dumb-jump eglot
+                   eglot-booster ejc-sql embark-consult
+                   exec-path-from-shell expand-region faceup forge
+                   git-link git-modes go-mode gptel helpful idlwave
+                   jinx kotlin-ts-mode languagetool marginalia mise
+                   modus-themes move-text multiple-cursors ob-http
+                   ob-swift orderless rainbow-mode restclient
+                   swift-mode tramp verilog-mode vertico vterm wgrep
+                   which-key yaml-mode))
  '(package-vc-selected-packages
    '((eglot-booster :url "https://github.com/jdtsmith/eglot-booster")
      (copilot :url "https://github.com/copilot-emacs/copilot.el"
