@@ -5,6 +5,7 @@
       '(
         capitalize-dwim
         evilnc-comment-or-uncomment-lines
+        hs-hide-level
         indent-for-tab-command
         keyboard-escape-quit
         my/kill-line-or-region
