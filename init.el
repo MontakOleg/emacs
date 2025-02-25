@@ -612,11 +612,6 @@ The result is returned as a string."
   :config
   (which-key-mode))
 
-
-;;; treemacs
-
-(use-package treemacs)
-
 ;; Keybindings
 
 (bind-keys
@@ -665,8 +660,8 @@ The result is returned as a string."
                    jinx kotlin-ts-mode languagetool marginalia mise
                    modus-themes move-text multiple-cursors ob-http
                    ob-swift orderless rainbow-mode restclient
-                   swift-mode tramp treemacs verilog-mode vertico
-                   vterm wgrep which-key yaml-mode))
+                   swift-mode tramp verilog-mode vertico vterm wgrep
+                   which-key yaml-mode))
  '(package-vc-selected-packages
    '((eglot-booster :url "https://github.com/jdtsmith/eglot-booster")
      (copilot :url "https://github.com/copilot-emacs/copilot.el"
