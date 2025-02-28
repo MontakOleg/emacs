@@ -83,7 +83,6 @@
 (minibuffer-depth-indicate-mode 1)
 (recentf-mode 1)
 (context-menu-mode 1)
-(repeat-mode 1)
 
 ;; EditorConfig
 
