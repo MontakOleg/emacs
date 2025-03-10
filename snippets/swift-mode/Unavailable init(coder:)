@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: Unavailable init(coder:)
+# key: initcoder
+# --
+@available(*, unavailable)
+required init?(coder _: NSCoder) {
+    fatalError("init(coder:) is not implemented")
+}

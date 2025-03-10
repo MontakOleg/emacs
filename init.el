@@ -588,6 +588,14 @@ The result is returned as a string."
   (global-diff-hl-mode)
   (add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh t))
 
+;;; yasnippet
+
+(use-package yasnippet
+  :bind (:map yas-keymap
+              ("RET" . yas-next-field-or-maybe-expand))
+  :config
+  (yas-global-mode 1))
+
 ;;; all-the-icons
 
 (use-package all-the-icons
@@ -660,7 +668,7 @@ The result is returned as a string."
                    modus-themes move-text multiple-cursors ob-http
                    ob-swift orderless rainbow-mode restclient
                    swift-mode tramp verilog-mode vertico vterm wgrep
-                   which-key yaml-mode))
+                   which-key yaml-mode yasnippet))
  '(package-vc-selected-packages
    '((eglot-booster :url "https://github.com/jdtsmith/eglot-booster")
      (copilot :url "https://github.com/copilot-emacs/copilot.el"
