@@ -396,8 +396,10 @@
 (use-package gptel
   :bind
   ("C-c RET" . gptel-send)
-  :custom
-  (gptel-model 'gpt-4o))
+  :config
+  (setq gptel-backend
+        (gptel-make-anthropic "Claude" :stream t :key #'gptel-api-key-from-auth-source))
+  (setq gptel-model 'claude-3-7-sonnet-20250219))
 
 ;; helpful
 
