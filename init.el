@@ -301,8 +301,7 @@
 
 (use-package swift-mode
   :mode ("\\.swift\\'" . swift-mode)
-  :hook ((swift-mode . apheleia-mode)
-         (swift-mode . flymake-swiftlint-setup))
+  :hook ((swift-mode . flymake-swiftlint-setup))
   :custom (swift-mode:parenthesized-expression-offset 4)
   :bind ( :map swift-mode-map
           ("M-s-l" . swiftformat-buffer))
