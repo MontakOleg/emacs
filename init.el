@@ -388,7 +388,7 @@
 (use-package yaml-mode
   :mode ("\\.\\(yml\\|yaml\\)\\'" . yaml-mode))
 
-;; gptel
+;;; gptel
 
 (setq auth-sources '("~/.authinfo"))
 
@@ -398,7 +398,20 @@
   :config
   (setq gptel-backend
         (gptel-make-anthropic "Claude" :stream t :key #'gptel-api-key-from-auth-source))
-  (setq gptel-model 'claude-3-7-sonnet-20250219))
+  (setq gptel-model 'claude-3-7-sonnet-20250219)
+
+  ;; https://github.com/karthink/gptel/discussions/663
+  (gptel-make-anthropic "Claude-thinking"
+    :key #'gptel-api-key-from-auth-source
+    :stream t
+    :models '(claude-3-7-sonnet-20250219)
+    :header (lambda () (when-let* ((key (gptel--get-api-key)))
+                         `(("x-api-key" . ,key)
+                           ("anthropic-version" . "2023-06-01")
+                           ("anthropic-beta" . "pdfs-2024-09-25")
+                           ("anthropic-beta" . "output-128k-2025-02-19")
+                           ("anthropic-beta" . "prompt-caching-2024-07-31"))))
+    :request-params '(:thinking (:type "enabled" :budget_tokens 8192) :max_tokens 32000)))
 
 ;; helpful
 
