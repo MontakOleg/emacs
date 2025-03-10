@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: Dependency property wrapper usage
+# key: @dep
+# --
+@Dependency(\.${1:name})
+private var $1: ${1:$(upcase-first yas-text)}

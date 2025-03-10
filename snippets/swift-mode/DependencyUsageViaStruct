@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: Dependency property wrapper usage
+# key: deps
+# --
+private var ${1:name}: Dependency<${1:$(upcase-first yas-text)}> = Dependency<\.${1}>
