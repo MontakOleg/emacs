@@ -272,18 +272,6 @@
 
 ;; formatter
 
-(use-package apheleia
-  :config
-  (add-to-list 'apheleia-formatters
-               '(swiftformat "swiftformat"
-                             "--quiet"
-                             (let* ((proj-root (expand-file-name (project-root (project-current))))
-                                    (config-path (expand-file-name ".swiftformat" proj-root)))
-                               (when (file-exists-p config-path)
-                                 (list "--config" config-path)))))
-  (add-to-list 'apheleia-mode-alist
-               '(swift-mode . swiftformat)))
-
 (defun swiftformat-buffer ()
   "Format the current buffer using swiftformat."
   (interactive)
@@ -673,16 +661,16 @@ The result is returned as a string."
      default))
  '(package-selected-packages
    '(all-the-icons all-the-icons-completion all-the-icons-dired
-                   all-the-icons-dired-mode apheleia cape copilot
-                   corfu diff-hl diminish dumb-jump eglot
-                   eglot-booster ejc-sql embark-consult
-                   exec-path-from-shell expand-region faceup forge
-                   git-link git-modes go-mode gptel helpful idlwave
-                   jinx kotlin-ts-mode languagetool marginalia mise
-                   modus-themes move-text multiple-cursors ob-http
-                   ob-swift orderless rainbow-mode restclient
-                   swift-mode tramp verilog-mode vertico vterm wgrep
-                   which-key yaml-mode yasnippet))
+                   all-the-icons-dired-mode cape copilot corfu diff-hl
+                   diminish dumb-jump eglot eglot-booster ejc-sql
+                   embark-consult exec-path-from-shell expand-region
+                   faceup forge git-link git-modes go-mode gptel
+                   helpful idlwave jinx kotlin-ts-mode languagetool
+                   marginalia mise modus-themes move-text
+                   multiple-cursors ob-http ob-swift orderless
+                   rainbow-mode restclient swift-mode tramp
+                   verilog-mode vertico vterm wgrep which-key
+                   yaml-mode yasnippet))
  '(package-vc-selected-packages
    '((eglot-booster :url "https://github.com/jdtsmith/eglot-booster")
      (copilot :url "https://github.com/copilot-emacs/copilot.el"
