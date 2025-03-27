@@ -345,7 +345,6 @@
   (setq
       org-support-shift-select t
       org-startup-indented t
-      org-log-done 'time
       org-priority-enable-commands nil))
 
 (use-package ob
