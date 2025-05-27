@@ -519,7 +519,13 @@
 
 ;;; Xcode + Eglot
 
-(defun my-swift-mode:xcrun (&rest args)
+(defun my/mise-run (&rest args)
+  "Invoke mise with the given ARGS.
+
+The result is returned as a string."
+  (apply #'my/command-output-to-string "mise" args))
+
+(defun my/xcrun (&rest args)
   "Invoke xcrun with the given ARGS.
 
 The result is returned as a string."
@@ -528,7 +534,9 @@ The result is returned as a string."
 ;;;###autoload
 (defun my-swift-mode:eglot-server-contact (_ignored)
   "Locate the sourcekit-lsp executable in the active Xcode installation and return its path."
-  (list (my-swift-mode:xcrun "--find" "sourcekit-lsp")))
+  (if (string-equal (buffer-name) "Package.swift")
+    (list (my/mise-run "which" "package-swift-lsp"))
+    (list (my/xcrun "--find" "sourcekit-lsp"))))
 
 ;;; xref-eglot+dumb-jump
 
