@@ -11,8 +11,11 @@
         my/kill-line-or-region
         ns-copy-including-secondary
         org-beginning-of-line
+        org-end-of-line
+        org-return-and-maybe-indent
         org-self-insert-command
         org-yank
+        pixel-scroll-precision
         upcase-char
         ))
 
