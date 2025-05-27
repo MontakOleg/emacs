@@ -1,5 +1,5 @@
 *.DS_Store
-/forge-database.sqlite
+/forge-database*.sqlite
 /.cache/
 /backups/
 /eln-cache/
