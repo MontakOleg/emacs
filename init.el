@@ -385,7 +385,7 @@
   :config
   (setq gptel-backend
         (gptel-make-anthropic "Claude" :stream t :key #'gptel-api-key-from-auth-source))
-  (setq gptel-model 'claude-3-7-sonnet-20250219)
+  (setq gptel-model 'claude-sonnet-4-20250514)
 
   ;; https://github.com/karthink/gptel/discussions/663
   (gptel-make-anthropic "Claude-thinking"
