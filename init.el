@@ -554,6 +554,15 @@
 
 ;;; End of Xcode + Eglot
 
+;; breadcrumb
+
+(use-package breadcrumb
+  :custom
+  (breadcrumb-project-max-length 0.5)
+  :hook (git-commit-mode . (lambda () (breadcrumb-local-mode -1)))
+  :config
+  (breadcrumb-mode))
+
 ;; dired
 
 (use-package dired
@@ -655,16 +664,16 @@
      default))
  '(package-selected-packages
    '(all-the-icons all-the-icons-completion all-the-icons-dired
-                   all-the-icons-dired-mode cape copilot corfu diff-hl
-                   diminish dumb-jump eglot eglot-booster ejc-sql
-                   embark-consult exec-path-from-shell expand-region
-                   faceup forge git-link git-modes go-mode gptel
-                   helpful idlwave jinx kotlin-ts-mode languagetool
-                   marginalia mise modus-themes move-text
-                   multiple-cursors ob-http ob-swift orderless
-                   rainbow-mode restclient swift-mode tramp
-                   verilog-mode vertico vterm wgrep which-key
-                   yaml-mode yasnippet))
+                   all-the-icons-dired-mode breadcrumb cape copilot
+                   corfu diff-hl diminish dumb-jump eglot
+                   eglot-booster ejc-sql embark-consult
+                   exec-path-from-shell expand-region faceup forge
+                   git-link git-modes go-mode gptel helpful idlwave
+                   jinx kotlin-ts-mode languagetool marginalia mise
+                   modus-themes move-text multiple-cursors ob-http
+                   ob-swift orderless rainbow-mode restclient
+                   swift-mode tramp verilog-mode vertico vterm wgrep
+                   which-key yaml-mode yasnippet))
  '(package-vc-selected-packages
    '((eglot-booster :url "https://github.com/jdtsmith/eglot-booster")
      (copilot :url "https://github.com/copilot-emacs/copilot.el"
