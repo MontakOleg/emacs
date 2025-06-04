@@ -8,6 +8,7 @@
         hs-hide-level
         indent-for-tab-command
         keyboard-escape-quit
+        move-text-up
         my/kill-line-or-region
         ns-copy-including-secondary
         org-beginning-of-line
