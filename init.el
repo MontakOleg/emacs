@@ -420,7 +420,7 @@
 (use-package magit
   :commands (magit-status)
   :custom
-  (magit-format-file-function #'magit-format-file-all-the-icons)
+  (magit-format-file-function #'magit-format-file-nerd-icons)
   (magit-display-buffer-function 'magit-display-buffer-same-window-except-diff-v1)
   (magit-define-global-key-bindings 'recommended)
   (magit-diff-refine-hunk 'all))
@@ -601,19 +601,16 @@
   :config
   (yas-global-mode 1))
 
-;;; all-the-icons
+;;; nerd-icons
 
-(use-package all-the-icons
-  :if (display-graphic-p))
-
-(use-package all-the-icons-completion
-  :after (marginalia all-the-icons)
-  :hook (marginalia-mode . all-the-icons-completion-marginalia-setup)
+(use-package nerd-icons)
+(use-package nerd-icons-dired
+  :hook (dired-mode . nerd-icons-dired-mode))
+(use-package nerd-icons-completion
+  :after marginalia
+  :hook (marginalia-mode . nerd-icons-completion-marginalia-setup)
   :init
-  (all-the-icons-completion-mode))
-
-(use-package all-the-icons-dired
-  :hook dired-mode)
+  (nerd-icons-completion-mode))
 
 ;;; tramp
 
@@ -677,17 +674,20 @@
      "c1638a7061fb86be5b4347c11ccf274354c5998d52e6d8386e997b862773d1d2"
      default))
  '(package-selected-packages
-   '(all-the-icons all-the-icons-completion all-the-icons-dired
-                   all-the-icons-dired-mode breadcrumb cape copilot
-                   corfu diff-hl diminish dumb-jump eglot
-                   eglot-booster ejc-sql embark-consult
-                   exec-path-from-shell expand-region faceup forge
-                   git-link git-modes go-mode gptel helpful idlwave
-                   jinx kotlin-ts-mode languagetool marginalia mise
-                   modus-themes move-text multiple-cursors ob-http
-                   ob-swift orderless rainbow-mode restclient
-                   swift-mode tramp verilog-mode vertico vterm wgrep
-                   which-key yaml-mode yasnippet))
+   '(all-the-icons-dired-mode breadcrumb cape copilot corfu diff-hl
+                              diminish dumb-jump eglot eglot-booster
+                              ejc-sql embark-consult
+                              exec-path-from-shell expand-region
+                              faceup forge git-link git-modes go-mode
+                              gptel helpful idlwave jinx
+                              kotlin-ts-mode languagetool marginalia
+                              mise modus-themes move-text
+                              multiple-cursors nerd-icons
+                              nerd-icons-completion nerd-icons-dired
+                              ob-http ob-swift orderless rainbow-mode
+                              restclient swift-mode tramp verilog-mode
+                              vertico vterm wgrep which-key yaml-mode
+                              yasnippet))
  '(package-vc-selected-packages
    '((eglot-booster :url "https://github.com/jdtsmith/eglot-booster")
      (copilot :url "https://github.com/copilot-emacs/copilot.el"
