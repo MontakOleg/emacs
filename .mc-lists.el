@@ -18,6 +18,7 @@
         org-yank
         pixel-scroll-precision
         upcase-char
+        wdired--self-insert
         ))
 
 (setq mc/cmds-to-run-once

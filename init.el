@@ -615,6 +615,20 @@
 (use-package all-the-icons-dired
   :hook dired-mode)
 
+;;; tramp
+
+(use-package tramp
+  :ensure nil
+  :config
+
+  ;; Disable version control to avoid delays
+  (setq vc-ignore-dir-regexp
+      (format "\\(%s\\)\\|\\(%s\\)"
+              vc-ignore-dir-regexp
+              tramp-file-name-regexp))
+
+  (setq remote-file-name-inhibit-locks t))
+
 ;;; which-key
 
 (use-package which-key
