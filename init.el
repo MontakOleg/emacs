@@ -425,16 +425,6 @@
   (magit-define-global-key-bindings 'recommended)
   (magit-diff-refine-hunk 'all))
 
-(use-package forge
-  :after magit
-  :custom
-  (forge-status-buffer-default-topic-filters (forge--topics-spec
-                                              :type 'pullreq
-                                              :active nil
-                                              :state 'open
-                                              :limit 50
-                                              :order 'newest)))
-
 (use-package git-pile
   :ensure nil
   :after magit
@@ -678,15 +668,15 @@
                               diminish dumb-jump eglot eglot-booster
                               ejc-sql embark-consult
                               exec-path-from-shell expand-region
-                              faceup forge git-link git-modes go-mode
-                              gptel helpful idlwave jinx
-                              kotlin-ts-mode languagetool marginalia
-                              mise modus-themes move-text
-                              multiple-cursors nerd-icons
-                              nerd-icons-completion nerd-icons-dired
-                              ob-http ob-swift orderless rainbow-mode
-                              restclient swift-mode tramp verilog-mode
-                              vertico vterm wgrep which-key yaml-mode
+                              faceup git-link git-modes go-mode gptel
+                              helpful idlwave jinx kotlin-ts-mode
+                              languagetool marginalia mise
+                              modus-themes move-text multiple-cursors
+                              nerd-icons nerd-icons-completion
+                              nerd-icons-dired ob-http ob-swift
+                              orderless rainbow-mode restclient
+                              swift-mode tramp verilog-mode vertico
+                              vterm wgrep which-key yaml-mode
                               yasnippet))
  '(package-vc-selected-packages
    '((eglot-booster :url "https://github.com/jdtsmith/eglot-booster")
