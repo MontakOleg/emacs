@@ -616,6 +616,12 @@
 
   (setq remote-file-name-inhibit-locks t))
 
+;;;
+
+(use-package spacious-padding
+  :config
+  (spacious-padding-mode 1))
+
 ;;; which-key
 
 (use-package which-key
@@ -675,9 +681,9 @@
                               nerd-icons nerd-icons-completion
                               nerd-icons-dired ob-http ob-swift
                               orderless rainbow-mode restclient
-                              swift-mode tramp verilog-mode vertico
-                              vterm wgrep which-key yaml-mode
-                              yasnippet))
+                              spacious-padding swift-mode tramp
+                              verilog-mode vertico vterm wgrep
+                              which-key yaml-mode yasnippet))
  '(package-vc-selected-packages
    '((eglot-booster :url "https://github.com/jdtsmith/eglot-booster")
      (copilot :url "https://github.com/copilot-emacs/copilot.el"
