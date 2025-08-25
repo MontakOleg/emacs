@@ -264,6 +264,12 @@
 (use-package go-mode
   :mode ("\\.go\\'" . go-mode))
 
+;; js
+
+(use-package js
+  :ensure nil
+  :mode ("\\.tsx\\'" . js-tsx-mode))
+
 ;; rust
 
 (use-package rust-ts-mode
