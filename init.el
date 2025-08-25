@@ -304,11 +304,12 @@
          (rust-mode . eglot-ensure)
          (rust-ts-mode . eglot-ensure)
          (go-mode . eglot-ensure)
-         (kotlin-ts-mode . (lambda ()
-                             ;; kotlin-language-server is slow, give it 10 minutes to start
-                             ;; https://github.com/fwcd/kotlin-language-server/issues/510
-                             (setq-local eglot-connect-timeout 600)
-                             (eglot-ensure))))
+         ;; (kotlin-ts-mode . (lambda ()
+         ;;                     ;; kotlin-language-server is slow, give it 10 minutes to start
+         ;;                     ;; https://github.com/fwcd/kotlin-language-server/issues/510
+         ;;                     (setq-local eglot-connect-timeout 600)
+         ;;                     (eglot-ensure)))
+         )
   :custom
   (eglot-autoshutdown t)
   (eglot-events-buffer-config '(:size 0 :format full))
