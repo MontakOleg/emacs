@@ -503,6 +503,13 @@
 (use-package my-utils
   :ensure nil)
 
+;; treesit
+
+(use-package treesit
+  :ensure nil
+  :config
+  (add-to-list 'treesit-language-source-alist '(kotlin . ("https://github.com/fwcd/tree-sitter-kotlin"))))
+
 ;; kotlin-ts-mode
 
 (use-package kotlin-ts-mode
