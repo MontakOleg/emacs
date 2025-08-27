@@ -200,6 +200,10 @@
 (use-package restclient
   :mode ("\\.http\\'" . restclient-mode))
 
+;; dwim-shell-command
+
+(use-package dwim-shell-command)
+
 ;; languagetool
 
 (use-package languagetool
@@ -685,18 +689,18 @@
      default))
  '(package-selected-packages
    '(all-the-icons-dired-mode breadcrumb cape copilot corfu diff-hl
-                              diminish dumb-jump eglot eglot-booster
-                              ejc-sql embark-consult
-                              exec-path-from-shell expand-region
-                              faceup git-link git-modes go-mode gptel
-                              helpful idlwave jinx kotlin-ts-mode
-                              languagetool marginalia mise
-                              modus-themes move-text multiple-cursors
-                              nerd-icons nerd-icons-completion
-                              nerd-icons-dired ob-http ob-swift
-                              orderless rainbow-mode restclient
-                              spacious-padding swift-mode tramp
-                              verilog-mode vertico vterm wgrep
+                              diminish dumb-jump dwim-shell-command
+                              eglot eglot-booster ejc-sql
+                              embark-consult exec-path-from-shell
+                              expand-region faceup git-link git-modes
+                              go-mode gptel helpful idlwave jinx
+                              kotlin-ts-mode languagetool marginalia
+                              mise modus-themes move-text
+                              multiple-cursors nerd-icons
+                              nerd-icons-completion nerd-icons-dired
+                              ob-http ob-swift orderless rainbow-mode
+                              restclient spacious-padding swift-mode
+                              tramp verilog-mode vertico vterm wgrep
                               which-key yaml-mode yasnippet))
  '(package-vc-selected-packages
    '((eglot-booster :url "https://github.com/jdtsmith/eglot-booster")
