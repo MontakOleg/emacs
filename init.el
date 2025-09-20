@@ -573,9 +573,15 @@
 
 ;; dired
 
+(use-package dired-utils
+  :ensure nil)
+
 (use-package dired
   :ensure nil
   :hook (dired-mode . dired-hide-details-mode)
+  :bind (:map dired-mode-map
+              ("S-M-<up>" . ar/dired-drag-item-up)
+              ("S-M-<down>" . ar/dired-drag-item-down))
   :custom
   (dired-use-ls-dired nil)
   (dired-listing-switches "-lah")  ; human readable file sizes
@@ -693,21 +699,16 @@
      "c1638a7061fb86be5b4347c11ccf274354c5998d52e6d8386e997b862773d1d2"
      default))
  '(package-selected-packages
-   '(all-the-icons-dired-mode breadcrumb cape copilot corfu diff-hl
-                              diminish dired-subtree dumb-jump
-                              dwim-shell-command eglot eglot-booster
-                              ejc-sql embark-consult
+   '(all-the-icons-dired-mode breadcrumb cape diminish dired-subtree
+                              editorconfig eglot eglot-booster ejc-sql
                               exec-path-from-shell expand-region
-                              faceup git-link git-modes go-mode gptel
-                              helpful idlwave jinx kotlin-ts-mode
-                              languagetool marginalia mise
-                              modus-themes move-text multiple-cursors
-                              nerd-icons nerd-icons-completion
-                              nerd-icons-dired ob-http ob-swift
-                              orderless rainbow-mode restclient
-                              spacious-padding swift-mode tramp
-                              verilog-mode vertico vterm wgrep
-                              which-key yaml-mode yasnippet))
+                              faceup flymake go-mode helpful idlwave
+                              kotlin-ts-mode languagetool move-text
+                              multiple-cursors ob-http ob-swift org
+                              python rainbow-mode spacious-padding
+                              track-changes tramp verilog-mode vterm
+                              wgrep which-key window-tool-bar
+                              yaml-mode))
  '(package-vc-selected-packages
    '((eglot-booster :url "https://github.com/jdtsmith/eglot-booster")
      (copilot :url "https://github.com/copilot-emacs/copilot.el"
