@@ -202,7 +202,15 @@
 
 ;; dwim-shell-command
 
-(use-package dwim-shell-command)
+(use-package dwim-shell-command
+  :config
+  (defun dwim-shell-commands-image-optim ()
+    "Run imageoptim on marked images."
+    (interactive)
+    (dwim-shell-command-on-marked-files
+     "Optimize images"
+     "imageoptim '<<f>>'"
+     :utils "imageoptim")))
 
 ;; languagetool
 
