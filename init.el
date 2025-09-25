@@ -204,13 +204,23 @@
 
 (use-package dwim-shell-command
   :config
+
   (defun dwim-shell-commands-image-optim ()
     "Run imageoptim on marked images."
     (interactive)
     (dwim-shell-command-on-marked-files
      "Optimize images"
      "imageoptim '<<f>>'"
-     :utils "imageoptim")))
+     :utils "imageoptim"))
+
+  (defun dwim-shell-commands-encode-mp4 ()
+    "Encode video using libx265."
+    (interactive)
+    (dwim-shell-command-on-marked-files
+     "Convert to mp4"
+     "ffmpeg -i '<<f>>' -c:v libx265 -vtag hvc1 '<<fne>>'_out.mp4"
+     :utils "ffmpeg"))
+)
 
 ;; languagetool
 
