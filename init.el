@@ -292,6 +292,10 @@
   :ensure nil
   :mode ("\\.tsx\\'" . js-tsx-mode))
 
+;; dotenv
+
+(use-package dotenv-mode)
+
 ;; rust
 
 (use-package rust-ts-mode
@@ -718,7 +722,8 @@
      default))
  '(package-selected-packages
    '(all-the-icons-dired-mode breadcrumb cape diminish dired-subtree
-                              editorconfig eglot eglot-booster ejc-sql
+                              dotenv-mode editorconfig eglot
+                              eglot-booster ejc-sql
                               exec-path-from-shell expand-region
                               faceup flymake go-mode helpful idlwave
                               kotlin-ts-mode languagetool move-text
