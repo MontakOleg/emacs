@@ -222,11 +222,6 @@
      :utils "ffmpeg"))
 )
 
-;; ox-pandoc
-
-(use-package ox-pandoc
-  :defer t)
-
 ;; languagetool
 
 (use-package languagetool
@@ -397,6 +392,11 @@
                                                            (sqlite . t)
                                                            (emacs-lisp . t)
                                                            (shell . t))))
+
+(use-package ox-latex
+    :ensure nil
+    :after org
+    :custom (org-latex-compiler "xelatex"))
 
 ;; sql
 
@@ -733,10 +733,10 @@
                 helpful idlwave jinx kotlin-ts-mode languagetool magit
                 marginalia markdown-mode mise move-text
                 multiple-cursors nerd-icons-completion
-                nerd-icons-dired ob-http ob-swift orderless ox-pandoc
-                python rainbow-mode restclient spacious-padding
-                swift-mode tramp verilog-mode vertico vterm wgrep
-                which-key window-tool-bar yaml-mode yasnippet))
+                nerd-icons-dired ob-http ob-swift orderless python
+                rainbow-mode restclient spacious-padding swift-mode
+                tramp verilog-mode vertico vterm wgrep which-key
+                window-tool-bar yaml-mode yasnippet))
  '(package-vc-selected-packages
    '((eglot-booster :url "https://github.com/jdtsmith/eglot-booster")
      (copilot :url "https://github.com/copilot-emacs/copilot.el"
