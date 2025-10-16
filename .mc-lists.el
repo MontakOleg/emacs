@@ -9,6 +9,7 @@
         indent-for-tab-command
         keyboard-escape-quit
         move-text-up
+        my/backward-delete-word
         my/kill-line-or-region
         ns-copy-including-secondary
         org-beginning-of-line

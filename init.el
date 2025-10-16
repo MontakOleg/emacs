@@ -222,6 +222,11 @@
      :utils "ffmpeg"))
 )
 
+;; ox-pandoc
+
+(use-package ox-pandoc
+  :defer t)
+
 ;; languagetool
 
 (use-package languagetool
@@ -721,17 +726,17 @@
      "c1638a7061fb86be5b4347c11ccf274354c5998d52e6d8386e997b862773d1d2"
      default))
  '(package-selected-packages
-   '(all-the-icons-dired-mode breadcrumb cape diminish dired-subtree
-                              dotenv-mode editorconfig eglot
-                              eglot-booster ejc-sql
-                              exec-path-from-shell expand-region
-                              faceup flymake go-mode helpful idlwave
-                              kotlin-ts-mode languagetool move-text
-                              multiple-cursors ob-http ob-swift org
-                              python rainbow-mode spacious-padding
-                              track-changes tramp verilog-mode vterm
-                              wgrep which-key window-tool-bar
-                              yaml-mode))
+   '(breadcrumb cape copilot corfu diff-hl diminish dired-subtree
+                dotenv-mode dumb-jump dwim-shell-command eglot-booster
+                ejc-sql embark-consult exec-path-from-shell
+                expand-region faceup git-link git-modes go-mode gptel
+                helpful idlwave jinx kotlin-ts-mode languagetool magit
+                marginalia markdown-mode mise move-text
+                multiple-cursors nerd-icons-completion
+                nerd-icons-dired ob-http ob-swift orderless ox-pandoc
+                python rainbow-mode restclient spacious-padding
+                swift-mode tramp verilog-mode vertico vterm wgrep
+                which-key window-tool-bar yaml-mode yasnippet))
  '(package-vc-selected-packages
    '((eglot-booster :url "https://github.com/jdtsmith/eglot-booster")
      (copilot :url "https://github.com/copilot-emacs/copilot.el"
