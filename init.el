@@ -678,6 +678,12 @@
   :config
   (spacious-padding-mode 1))
 
+;;; mlscroll
+
+(use-package mlscroll
+  :config
+  (mlscroll-mode 1))
+
 ;;; which-key
 
 (use-package which-key
@@ -731,7 +737,7 @@
                 ejc-sql embark-consult exec-path-from-shell
                 expand-region faceup git-link git-modes go-mode gptel
                 helpful idlwave jinx kotlin-ts-mode languagetool magit
-                marginalia markdown-mode mise move-text
+                marginalia markdown-mode mise mlscroll move-text
                 multiple-cursors nerd-icons-completion
                 nerd-icons-dired ob-http ob-swift orderless python
                 rainbow-mode restclient spacious-padding swift-mode
