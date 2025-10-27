@@ -658,6 +658,10 @@
   :init
   (nerd-icons-completion-mode))
 
+;;; time-zones
+
+(use-package time-zones)
+
 ;;; tramp
 
 (use-package tramp
@@ -735,8 +739,8 @@
                 multiple-cursors nerd-icons-completion
                 nerd-icons-dired ob-http ob-swift orderless python
                 rainbow-mode restclient spacious-padding swift-mode
-                tramp verilog-mode vertico vterm wgrep which-key
-                window-tool-bar yaml-mode yasnippet))
+                time-zones tramp verilog-mode vertico vterm wgrep
+                which-key window-tool-bar yaml-mode yasnippet))
  '(package-vc-selected-packages
    '((eglot-booster :url "https://github.com/jdtsmith/eglot-booster")
      (copilot :url "https://github.com/copilot-emacs/copilot.el"
