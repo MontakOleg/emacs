@@ -576,13 +576,27 @@
 (cl-defmethod xref-backend-identifier-completion-table ((_backend (eql eglot+dumb)))
   (xref-backend-identifier-completion-table 'eglot))
 
+(defun xref-eglot+dumb--primary (identifier)
+  "Return the portion of IDENTIFIER for Eglot.
+If IDENTIFIER is already the LSP fallback string, return it unchanged so
+`xref-backend' callers can still satisfy Eglot's expectations."
+  (if (consp identifier) (car identifier) identifier))
+
+(defun xref-eglot+dumb--secondary (identifier)
+  "Return the portion of IDENTIFIER for dumb-jump, or nil when absent."
+  (when (consp identifier) (cdr identifier)))
+
 (cl-defmethod xref-backend-definitions ((_backend (eql eglot+dumb)) identifier)
-  (or (xref-backend-definitions 'eglot (car identifier))
-      (xref-backend-definitions 'dumb-jump (cdr identifier))))
+  (let ((eglot-id (xref-eglot+dumb--primary identifier))
+        (dumb-id (xref-eglot+dumb--secondary identifier)))
+    (or (and eglot-id (xref-backend-definitions 'eglot eglot-id))
+        (and dumb-id (xref-backend-definitions 'dumb-jump dumb-id)))))
 
 (cl-defmethod xref-backend-references ((_backend (eql eglot+dumb)) identifier)
-  (or (xref-backend-references 'eglot (car identifier))
-      (xref-backend-references 'dumb-jump (cdr identifier))))
+  (let ((eglot-id (xref-eglot+dumb--primary identifier))
+        (dumb-id (xref-eglot+dumb--secondary identifier)))
+    (or (and eglot-id (xref-backend-references 'eglot eglot-id))
+        (and dumb-id (xref-backend-references 'dumb-jump dumb-id)))))
 
 (cl-defmethod xref-backend-apropos ((_backend (eql eglot+dumb)) pattern)
   (xref-backend-apropos 'eglot pattern))
