@@ -556,9 +556,7 @@
 
 (defun my-swift-mode:eglot-server-contact (_ignored)
   "Locate the sourcekit-lsp executable in the active Xcode installation and return its path."
-  (if (string-equal (buffer-name) "Package.swift")
-    (list (my/command-output-to-string "mise" "which" "package-swift-lsp"))
-    (list (my/command-output-to-string "xcrun" "--find" "sourcekit-lsp"))))
+  (list (my/command-output-to-string "xcrun" "--find" "sourcekit-lsp")))
 
 ;;; xref-eglot+dumb-jump
 
