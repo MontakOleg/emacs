@@ -350,6 +350,9 @@
          ;;                     (setq-local eglot-connect-timeout 600)
          ;;                     (eglot-ensure)))
          )
+  :bind (:map eglot-mode-map
+              ("C-c e r" . eglot-rename)
+              ("C-c e a" . eglot-code-actions))
   :custom
   (eglot-autoshutdown t)
   (eglot-events-buffer-config '(:size 0 :format full))
