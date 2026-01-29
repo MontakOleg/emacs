@@ -294,6 +294,10 @@
 
 (use-package web-mode)
 
+;; csv-mode
+
+(use-package csv-mode)
+
 ;; dotenv
 
 (use-package dotenv-mode)
@@ -754,18 +758,19 @@ If IDENTIFIER is already the LSP fallback string, return it unchanged so
      "c1638a7061fb86be5b4347c11ccf274354c5998d52e6d8386e997b862773d1d2"
      default))
  '(package-selected-packages
-   '(breadcrumb cape copilot corfu diff-hl diminish dired-subtree
-                dotenv-mode dumb-jump dwim-shell-command editorconfig
-                eglot eglot-booster ejc-sql embark-consult erc
-                exec-path-from-shell expand-region faceup flymake
-                git-link git-modes go-mode gptel helpful idlwave jinx
-                jsonrpc kotlin-ts-mode languagetool magit marginalia
-                markdown-mode mise move-text multiple-cursors
-                nerd-icons-completion nerd-icons-dired ob-http
-                ob-swift orderless org peg python rainbow-mode
-                restclient spacious-padding swift-mode time-zones
-                tramp verilog-mode vertico vterm web-mode wgrep
-                which-key window-tool-bar yaml-mode yasnippet))
+   '(breadcrumb cape copilot corfu csv-mode diff-hl diminish
+                dired-subtree dotenv-mode dumb-jump dwim-shell-command
+                editorconfig eglot eglot-booster ejc-sql
+                embark-consult erc exec-path-from-shell expand-region
+                faceup flymake git-link git-modes go-mode gptel
+                helpful idlwave jinx jsonrpc kotlin-ts-mode
+                languagetool magit marginalia markdown-mode mise
+                move-text multiple-cursors nerd-icons-completion
+                nerd-icons-dired ob-http ob-swift orderless org peg
+                python rainbow-mode restclient spacious-padding
+                swift-mode time-zones tramp verilog-mode vertico vterm
+                web-mode wgrep which-key window-tool-bar yaml-mode
+                yasnippet))
  '(package-vc-selected-packages
    '((eglot-booster :url "https://github.com/jdtsmith/eglot-booster")
      (copilot :url "https://github.com/copilot-emacs/copilot.el"
