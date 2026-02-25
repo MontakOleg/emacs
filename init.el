@@ -236,8 +236,8 @@
              languagetool-server-stop)
   :config
   (setq languagetool-java-arguments '("-Dfile.encoding=UTF-8")
-        languagetool-console-command "/opt/homebrew/Cellar/languagetool/6.4/libexec/languagetool-commandline.jar"
-        languagetool-server-command "/opt/homebrew/Cellar/languagetool/6.4/libexec/languagetool-server.jar"))
+        languagetool-console-command "/opt/homebrew/Cellar/languagetool/6.7/libexec/languagetool-commandline.jar"
+        languagetool-server-command "/opt/homebrew/Cellar/languagetool/6.7/libexec/languagetool-server.jar"))
 
 ;; jinx
 
