@@ -348,6 +348,8 @@
          (rust-mode . eglot-ensure)
          (rust-ts-mode . eglot-ensure)
          (go-mode . eglot-ensure)
+         (tsx-ts-mode . eglot-ensure)
+         (typescript-ts-mode . eglot-ensure)
          ;; (kotlin-ts-mode . (lambda ()
          ;;                     ;; kotlin-language-server is slow, give it 10 minutes to start
          ;;                     ;; https://github.com/fwcd/kotlin-language-server/issues/510
@@ -763,7 +765,7 @@ If IDENTIFIER is already the LSP fallback string, return it unchanged so
                 editorconfig eglot eglot-booster ejc-sql
                 embark-consult erc exec-path-from-shell expand-region
                 faceup flymake git-link git-modes go-mode gptel
-                helpful idlwave jinx jsonrpc kotlin-ts-mode
+                helpful idlwave jinx jsonrpc jtsx kotlin-ts-mode
                 languagetool magit marginalia markdown-mode mise
                 move-text multiple-cursors nerd-icons-completion
                 nerd-icons-dired ob-http ob-swift orderless org peg
