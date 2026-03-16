@@ -459,10 +459,7 @@
 ;; agent-shell
 
 (use-package agent-shell
-  :ensure t
-  :config
-  (setq agent-shell-openai-authentication
-        (agent-shell-openai-make-authentication :login t)))
+  :ensure t)
 
 ;; helpful
 
