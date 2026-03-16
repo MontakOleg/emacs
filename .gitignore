@@ -18,3 +18,5 @@
 /url/
 /ielm-history.eld
 /.time-zones.el
+/.agent-shell/
+/agent/
