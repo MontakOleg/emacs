@@ -416,16 +416,6 @@
     :after org
     :custom (org-latex-compiler "xelatex"))
 
-;; sql
-
-(use-package ejc-sql
-  :custom
-  (ejc-jdbc-drivers
-   '("sqlite"     [org.xerial/sqlite-jdbc "3.46.0.1"]
-     "postgresql" [postgresql/postgresql "9.3-1102.jdbc41"]))
-  (clomacs-httpd-default-port 8099)
-  :after (sql-mode org-mode))
-
 ;; yaml
 
 (use-package yaml-mode
@@ -774,10 +764,10 @@ If IDENTIFIER is already the LSP fallback string, return it unchanged so
    '(agent-shell breadcrumb cape copilot corfu csv-mode diff-hl diminish
                  dired-subtree dotenv-mode dumb-jump
                  dwim-shell-command editorconfig eglot eglot-booster
-                 ejc-sql embark-consult erc exec-path-from-shell
-                 expand-region expreg faceup flymake git-link
-                 git-modes go-mode gptel helpful idlwave jinx jsonrpc
-                 jtsx kotlin-ts-mode languagetool magit marginalia
+                 embark-consult erc exec-path-from-shell expand-region
+                 expreg faceup flymake git-link git-modes go-mode
+                 gptel helpful idlwave jinx jsonrpc jtsx
+                 kotlin-ts-mode languagetool magit marginalia
                  markdown-mode mise move-text multiple-cursors
                  nerd-icons-completion nerd-icons-dired ob-http
                  ob-swift orderless org peg python rainbow-mode
