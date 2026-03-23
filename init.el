@@ -292,6 +292,10 @@
   :ensure nil
   :mode ("\\.tsx\\'" . js-tsx-mode))
 
+(use-package typescript-ts-mode
+  :ensure nil
+  :mode ("\\.ts\\'" . typescript-ts-mode))
+
 (use-package web-mode)
 
 ;; csv-mode
