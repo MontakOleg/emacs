@@ -128,23 +128,6 @@
 
 (add-to-list 'load-path (concat user-emacs-directory "localpackages"))
 
-;;; Copilot
-
-(use-package copilot
-  :vc (:url "https://github.com/copilot-emacs/copilot.el"
-            :branch "main")
-  ;; :hook prog-mode
-  :bind (:map copilot-completion-map
-              ("<tab>" . copilot-accept-completion)
-              ("TAB" . copilot-accept-completion))
-  :config
-  (add-to-list 'copilot-indentation-alist '(prog-mode 2))
-  (add-to-list 'copilot-indentation-alist '(org-mode 2))
-  (add-to-list 'copilot-indentation-alist '(sql-mode 2))
-  ;; (add-to-list 'copilot-indentation-alist '(text-mode 2))
-  ;; (add-to-list 'copilot-indentation-alist '(closure-mode 2))
-  (add-to-list 'copilot-indentation-alist '(emacs-lisp-mode 2)))
-
 ;; flymake
 
 (use-package flymake
@@ -765,23 +748,20 @@ If IDENTIFIER is already the LSP fallback string, return it unchanged so
      "c1638a7061fb86be5b4347c11ccf274354c5998d52e6d8386e997b862773d1d2"
      default))
  '(package-selected-packages
-   '(agent-shell breadcrumb cape copilot corfu csv-mode diff-hl diminish
+   '(agent-shell breadcrumb cape corfu csv-mode diff-hl diminish
                  dired-subtree dotenv-mode dumb-jump
-                 dwim-shell-command editorconfig eglot eglot-booster
-                 embark-consult erc exec-path-from-shell expand-region
-                 expreg faceup flymake git-link git-modes go-mode
-                 gptel helpful idlwave jinx jsonrpc jtsx
+                 dwim-shell-command eglot-booster embark-consult erc
+                 exec-path-from-shell expand-region expreg faceup
+                 git-link git-modes go-mode gptel helpful idlwave jinx
                  kotlin-ts-mode languagetool magit marginalia
                  markdown-mode mise move-text multiple-cursors
                  nerd-icons-completion nerd-icons-dired ob-http
-                 ob-swift orderless org peg python rainbow-mode
-                 restclient spacious-padding swift-mode time-zones
-                 tramp verilog-mode vertico vterm web-mode wgrep
-                 which-key window-tool-bar yaml-mode yasnippet))
+                 ob-swift orderless peg python rainbow-mode restclient
+                 spacious-padding swift-mode time-zones vertico vterm
+                 web-mode wgrep which-key window-tool-bar yaml-mode
+                 yasnippet))
  '(package-vc-selected-packages
-   '((eglot-booster :url "https://github.com/jdtsmith/eglot-booster")
-     (copilot :url "https://github.com/copilot-emacs/copilot.el"
-              :branch "main"))))
+   '((eglot-booster :url "https://github.com/jdtsmith/eglot-booster"))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
