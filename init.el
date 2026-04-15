@@ -436,9 +436,7 @@
 ;; agent-shell
 
 (use-package agent-shell
-  :ensure t
-  :custom
-  (agent-shell-highlight-blocks t))
+  :ensure t)
 
 ;; helpful
 
