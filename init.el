@@ -359,11 +359,6 @@
   (add-to-list 'eglot-server-programs
                '(swift-mode . my-swift-mode:eglot-server-contact)))
 
-(use-package eglot-booster
-    :vc (:url "https://github.com/jdtsmith/eglot-booster")
-	:after eglot
-	:config	(eglot-booster-mode))
-
 (use-package ob-swift
   :after org)
 
@@ -752,7 +747,7 @@ If IDENTIFIER is already the LSP fallback string, return it unchanged so
  '(package-selected-packages
    '(agent-shell breadcrumb cape corfu csv-mode diff-hl diminish
                  dired-subtree dotenv-mode dumb-jump
-                 dwim-shell-command eglot-booster embark-consult erc
+                 dwim-shell-command embark-consult erc
                  exec-path-from-shell expand-region expreg faceup
                  git-link git-modes go-mode gptel helpful idlwave jinx
                  kotlin-ts-mode languagetool magit marginalia
@@ -762,8 +757,7 @@ If IDENTIFIER is already the LSP fallback string, return it unchanged so
                  spacious-padding swift-mode time-zones vertico vterm
                  web-mode wgrep which-key window-tool-bar yaml-mode
                  yasnippet))
- '(package-vc-selected-packages
-   '((eglot-booster :url "https://github.com/jdtsmith/eglot-booster"))))
+ )
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
