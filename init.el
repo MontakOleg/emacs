@@ -295,6 +295,10 @@
   :ensure nil
   :mode ("\\.rs\\'" . rust-ts-mode))
 
+;; terraform
+
+(use-package terraform-mode)
+
 ;; dockerfile
 
 (use-package dockerfile-ts-mode
@@ -754,10 +758,12 @@ If IDENTIFIER is already the LSP fallback string, return it unchanged so
                  markdown-mode mise move-text multiple-cursors
                  nerd-icons-completion nerd-icons-dired ob-http
                  ob-swift orderless peg python rainbow-mode restclient
-                 spacious-padding swift-mode time-zones vertico vterm
-                 web-mode wgrep which-key window-tool-bar yaml-mode
-                 yasnippet))
- )
+                 spacious-padding swift-mode terraform-mode time-zones
+                 vertico vterm web-mode wgrep which-key
+                 window-tool-bar yaml-mode yasnippet))
+ '(package-vc-selected-packages
+   '((eglot-booster :url "https://github.com/jdtsmith/eglot-booster")))
+ '(safe-local-variable-values '((hcl-indent-level . 2))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
