@@ -272,12 +272,12 @@
 ;; js
 
 (use-package js
-  :ensure nil
-  :mode ("\\.tsx\\'" . js-tsx-mode))
+  :ensure nil)
 
 (use-package typescript-ts-mode
   :ensure nil
-  :mode ("\\.ts\\'" . typescript-ts-mode))
+  :mode (("\\.ts\\'" . typescript-ts-mode)
+         ("\\.tsx\\'" . tsx-ts-mode)))
 
 (use-package web-mode)
 
@@ -334,6 +334,14 @@
     "Enable eglot's flymake backend manually."
     (add-hook 'flymake-diagnostic-functions #'eglot-flymake-backend nil t))
 
+(defun my/eglot-typescript-server-contact (&optional _interactive project)
+  "Use the project-local TypeScript language server when available."
+  (let* ((root (if project (project-root project) default-directory))
+         (server (expand-file-name "node_modules/.bin/typescript-language-server" root)))
+    (if (file-executable-p server)
+        (list server "--stdio")
+      (list "typescript-language-server" "--stdio"))))
+
 (use-package eglot
   :hook ((swift-mode . eglot-ensure)
          (rust-mode . eglot-ensure)
@@ -341,6 +349,7 @@
          (go-mode . eglot-ensure)
          (tsx-ts-mode . eglot-ensure)
          (typescript-ts-mode . eglot-ensure)
+         (terraform-mode . eglot-ensure)
          ;; (kotlin-ts-mode . (lambda ()
          ;;                     ;; kotlin-language-server is slow, give it 10 minutes to start
          ;;                     ;; https://github.com/fwcd/kotlin-language-server/issues/510
@@ -360,6 +369,9 @@
   ;; manually manage flymake, otherwise eglot will disable all other backends
   ;; https://github.com/joaotavora/eglot/issues/268
   (add-to-list 'eglot-stay-out-of 'flymake)
+  (add-to-list 'eglot-server-programs
+               '((typescript-ts-mode tsx-ts-mode)
+                 . my/eglot-typescript-server-contact))
   (add-to-list 'eglot-server-programs
                '(swift-mode . my-swift-mode:eglot-server-contact)))
 
@@ -761,8 +773,6 @@ If IDENTIFIER is already the LSP fallback string, return it unchanged so
                  spacious-padding swift-mode terraform-mode time-zones
                  vertico vterm web-mode wgrep which-key
                  window-tool-bar yaml-mode yasnippet))
- '(package-vc-selected-packages
-   '((eglot-booster :url "https://github.com/jdtsmith/eglot-booster")))
  '(safe-local-variable-values '((hcl-indent-level . 2))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
